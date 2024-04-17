@@ -483,7 +483,7 @@ const Header = () => {
                                 <NavLink to="/">{t('sales')}</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/analytics">{t('analytics')}</NavLink>
+                                <NavLink to="/frame">{t('analytics')}</NavLink>
                             </li>
                             <li>
                                 <NavLink to="/finance">{t('finance')}</NavLink>
