@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 const Index = lazy(() => import('@/pages/Index'));
-const Frame = lazy(() => import('@/pages/Frame'));
+const Chart = lazy(() => import('@/pages/Chart'));
 
 const routes = [
     // dashboard
@@ -10,8 +10,8 @@ const routes = [
         layout: 'default',
     },
     {
-        path: '/frame',
-        Element: <Frame />,
+        path: '/chart',
+        element: <Chart />,
         layout: 'default',
     },
 ];
