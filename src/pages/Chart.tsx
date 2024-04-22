@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
-function App() {
+function Chart() {
     const [cardList, setCardList] = useState({
         row1: [],
         row2: [],
@@ -11,7 +11,7 @@ function App() {
         async function fetchData() {
             try {
                 // JSON 데이터 가져오기 예시 (fetch, axios 등을 사용하여 데이터를 가져올 수 있습니다.)
-                const response = await fetch('http://localhost:3002/datas');
+                const response = await fetch('http://localhost:3001/datas');
                 const data = await response.json();
 
                 setCardList(data.cardList);
@@ -39,4 +39,4 @@ function App() {
     );
 }
 
-export default App;
+export default Chart;

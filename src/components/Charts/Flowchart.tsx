@@ -318,7 +318,7 @@ const Flowchart = () => {
         const fetchData = async () => {
             setLoading(true);
             try {
-                const response = await fetch('http://localhost:3001/datas');
+                const response = await fetch('http://localhost:3002/datas');
                 const json = await response.json();
                 setChartData(json.datas);
             } catch (error) {
@@ -370,20 +370,20 @@ const Flowchart = () => {
                 left: -7,
                 top: 22,
             },
-            colors: isDark ? ['#2196F3', '#E7515A'] : ['#1B55E2', '#E7515A'],
+            colors: ['#0079FF', '#FF4B91'],
             markers: {
                 discrete: [
                     {
                         seriesIndex: 0,
                         dataPointIndex: 6,
-                        fillColor: '#1B55E2',
+                        fillColor: '#0079FF',
                         strokeColor: 'transparent',
                         size: 7,
                     },
                     {
                         seriesIndex: 1,
                         dataPointIndex: 5,
-                        fillColor: '#E7515A',
+                        fillColor: '#FF4B91',
                         strokeColor: 'transparent',
                         size: 7,
                     },
@@ -471,9 +471,9 @@ const Flowchart = () => {
                 gradient: {
                     shadeIntensity: 1,
                     inverseColors: !1,
-                    opacityFrom: isDark ? 0.19 : 0.28,
+                    opacityFrom: 0.28,
                     opacityTo: 0.05,
-                    stops: isDark ? [100, 100] : [45, 100],
+                    stops: [45, 100],
                 },
             },
         },
