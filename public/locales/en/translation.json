@@ -1,5 +1,6 @@
 {
     "dashboard": "Dashboard",
+    "topology": "Topology",
     "sales": "Profile",
     "analytics": "Chart",
     "apps": "Apps",
@@ -23,6 +24,7 @@
     "finance": "Finance",
     "crypto": "Crypto",
     "test": "Users (Test)",
+    "test-user": "Users (Test-SY)",
     "chat": "Chat",
     "mailbox": "Mailbox",
     "todo_list": "Todo List",

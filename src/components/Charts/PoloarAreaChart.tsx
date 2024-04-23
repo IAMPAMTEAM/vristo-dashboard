@@ -1,16 +1,12 @@
-import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
-import { IRootState } from '@/store';
 
 interface Props {
     series: number[];
     labels: string[];
 }
 
-const PolarAreaChart = (props: Props) => {
-    const isDark = useSelector((state: IRootState) => state.themeConfig.theme === 'dark' || state.themeConfig.isDarkMode);
-
+export const PolarAreaChart = (props: Props) => {
     const [chartData, setChartData] = useState({
         series: props.series,
         options: {
@@ -61,9 +57,7 @@ const PolarAreaChart = (props: Props) => {
 
     return (
         <div>
-            <ReactApexChart options={chartData.options} series={chartData.series} type="area" height={350} />
+            <ReactApexChart options={chartData.options} series={chartData.series} type="polarArea" height={350} />
         </div>
     );
 };
-
-export default PolarAreaChart;

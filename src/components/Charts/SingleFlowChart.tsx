@@ -4,12 +4,13 @@ import IconCircleCheck from '../Icon/IconCircleCheck';
 
 interface Props {
     series: number[];
+    categoryEn: string;
     category: string;
     color: string;
     updatePoint: number;
 }
 
-const SingleFlowChart = (props: Props) => {
+export const SingleFlowChart = (props: Props) => {
     const [chartData, setChartData] = useState({
         series: [
             {
@@ -75,17 +76,12 @@ const SingleFlowChart = (props: Props) => {
             <div className="flex">
                 <IconCircleCheck className="m-1 mr-2" />
                 <div>
-                    <p className="font-semibold text-lg">{props.category}</p>
-                    <p className="font-thin opacity-50">category</p>
+                    <p className="font-semibold text-lg">{props.categoryEn}</p>
+                    <p className="font-thin">{props.category}</p>
                 </div>
             </div>
             <ReactApexChart options={{ ...chartData.options, chart: { ...chartData.options.chart, type: 'line' } }} series={chartData.series} type="line" height={45} />
-            <div className="flex flex-row space-x-40 mt-5">
-                <p className="font-semibold">$20,000</p>
-                {props.updatePoint > 0 ? <p className="text-green-600">+{props.updatePoint}%</p> : <p className="text-red-500">{props.updatePoint}%</p>}
-            </div>
+            <div className="mt-5">{props.updatePoint > 0 ? <p className="text-[#219C90]">+{props.updatePoint}%</p> : <p className="text-[#FF204E]">{props.updatePoint}%</p>}</div>
         </div>
     );
 };
-
-export default SingleFlowChart;
