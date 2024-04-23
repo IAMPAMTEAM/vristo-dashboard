@@ -4,6 +4,7 @@ import DefaultLayout from '../components/Layouts/DefaultLayout';
 import { routes } from './routes';
 
 const finalRoutes = routes.map((route) => {
+    console.log(route);
     return {
         ...route,
         element: route.layout === 'blank' ? <BlankLayout>{route.element}</BlankLayout> : <DefaultLayout>{route.element}</DefaultLayout>,

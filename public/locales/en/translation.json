@@ -1,7 +1,7 @@
 {
     "dashboard": "Dashboard",
     "sales": "Profile",
-    "analytics": "Analytics",
+    "analytics": "Chart",
     "apps": "Apps",
     "components": "Components",
     "elements": "Elements",
@@ -22,6 +22,7 @@
     "more": "More",
     "finance": "Finance",
     "crypto": "Crypto",
+    "test": "Users (Test)",
     "chat": "Chat",
     "mailbox": "Mailbox",
     "todo_list": "Todo List",

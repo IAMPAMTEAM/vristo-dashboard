@@ -34,14 +34,14 @@ const Index = () => {
                         Users
                     </Link> */}
                     </li>
-                    <li className="before:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
+                    <li className="befor0000e:content-['/'] ltr:before:mr-2 rtl:before:ml-2">
                         <span>Profile</span>
                     </li>
                 </ul>
                 <div className="pt-5">
-                    <div className={`grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-${totalWidth} gap-5 mb-5`}>
-                        {/* <div  className={`grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-5 mb-5`}> */}
-                        <div className={`panel xl:col-span-${colSpan1} `}>
+                    <div className={`grid lg:grid-cols-10 gap-5 mb-5`}>
+                        {/* <div  className={`grid grid-cols-1 lg:grid-cols-3 lg:grid-cols-4 gap-5 mb-5`}> */}
+                        <div className={`panel lg:col-span-${colSpan1} `}>
                             <div className="flex items-center justify-between mb-5">
                                 <h5 className="font-semibold text-lg dark:text-white-light">Profile</h5>
                             </div>
@@ -67,7 +67,7 @@ const Index = () => {
                                 </ul>
                             </div>
                         </div>
-                        <div className={`panel lg:col-span-2 xl:col-span-${colSpan2}`}>
+                        <div className={`panel lg:col-span-${colSpan2}`}>
                             <div className="mb-5">
                                 <h5 className="font-semibold text-lg dark:text-white-light">Task</h5>
                             </div>
@@ -160,7 +160,7 @@ const Index = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div className={`grid grid-cols-1 md:grid-cols-2 gap-5`}>
                         <div className={`panel xl:col-span-${colSpan3}`}>
                             <div className="mb-5">
                                 <h5 className="font-semibold text-lg dark:text-white-light">Summary</h5>
