@@ -71,10 +71,8 @@ const Sidebar = () => {
     }, [location]);
 
     return (
-        <div className={semidark ? 'dark' : ''}>
-            <nav
-                className={`sidebar fixed min-h-screen h-full top-0 bottom-0 w-[260px] shadow-[5px_0_25px_0_rgba(94,92,154,0.1)] z-50 transition-all duration-300 ${semidark ? 'text-white-dark' : ''}`}
-            >
+        <div>
+            <nav className={`sidebar fixed min-h-screen h-full top-0 bottom-0 w-[260px] shadow-[5px_0_25px_0_rgba(94,92,154,0.1)] z-50 transition-all duration-300`}>
                 <div className="bg-white dark:bg-black h-full">
                     <div className="flex justify-between items-center px-4 py-3">
                         <NavLink to="/" className="main-logo flex items-center shrink-0">
@@ -121,8 +119,24 @@ const Sidebar = () => {
                                         <li>
                                             <NavLink to="/test">{t('test')}</NavLink>
                                         </li>
+                                        <li>
+                                            <NavLink to="/user-test">{t('test-user')}</NavLink>
+                                        </li>
                                     </ul>
                                 </AnimateHeight>
+                            </li>
+
+                            <li className="menu nav-item">
+                                <button type="button" className={`${currentMenu === 'topology' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('topology')}>
+                                    <div className="flex items-center">
+                                        <IconMenuDashboard className="group-hover:!text-primary shrink-0" />
+                                        <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{t('topology')}</span>
+                                    </div>
+
+                                    <div className={currentMenu !== 'topology' ? 'rtl:rotate-90 -rotate-90' : ''}>
+                                        <IconCaretDown />
+                                    </div>
+                                </button>
                             </li>
 
                             <h2 className="py-3 px-7 flex items-center uppercase font-extrabold bg-white-light/30 dark:bg-dark dark:bg-opacity-[0.08] -mx-4 mb-1">
@@ -222,10 +236,10 @@ const Sidebar = () => {
                                 </ul>
                             </li>
 
-                            <h2 className="py-3 px-7 flex items-center uppercase font-extrabold bg-white-light/30 dark:bg-dark dark:bg-opacity-[0.08] -mx-4 mb-1">
+                            {/* <h2 className="py-3 px-7 flex items-center uppercase font-extrabold bg-white-light/30 dark:bg-dark dark:bg-opacity-[0.08] -mx-4 mb-1">
                                 <IconMinus className="w-4 h-5 flex-none hidden" />
                                 <span>{t('user_interface')}</span>
-                            </h2>
+                            </h2> */}
 
                             <li className="menu nav-item">
                                 <button type="button" className={`${currentMenu === 'component' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('component')}>
