@@ -3,7 +3,7 @@ import { AgGridReact } from 'ag-grid-react';
 import { ColDef } from 'ag-grid-community';
 import Flowchart from '@/components/Charts/Flowchart';
 import { PolarAreaChart } from '@/components/Charts/PoloarAreaChart';
-import SingleFlowChart from '@/components/Charts/SingleFlowChart';
+import { SingleFlowChart } from '@/components/Charts/SingleFlowChart';
 
 function Test() {
     const [rowData, setRowData] = useState([

@@ -1,6 +1,12 @@
 {
     "dashboard": "Dashboard",
     "topology": "Topology",
+    "regionalResources": "Regional Resources",
+    "subnets": "Subnets",
+    "vpcGateways": "VPC Gateways",
+    "subnetRoutes": "Subnet Routes",
+    "loadBalancers": "Load Balancers",
+    "vpcPeering": "VPC Peering",
     "sales": "Profile",
     "analytics": "Chart",
     "apps": "Apps",
