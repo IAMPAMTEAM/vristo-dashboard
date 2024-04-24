@@ -137,6 +137,29 @@ const Sidebar = () => {
                                         <IconCaretDown />
                                     </div>
                                 </button>
+
+                                <AnimateHeight duration={300} height={currentMenu === 'topology' ? 'auto' : 0}>
+                                    <ul className="sub-menu text-gray-500">
+                                        <li>
+                                            <NavLink to="/regional-resources">{t('regionalResources')}</NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to="/subnets">{t('subnets')}</NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to="/vpc-gateways">{t('vpcGateways')}</NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to="/subnet-routes">{t('subnetRoutes')}</NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to="/load-balancers">{t('loadBalancers')}</NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to="/vpc-peering">{t('vpcPeering')}</NavLink>
+                                        </li>
+                                    </ul>
+                                </AnimateHeight>
                             </li>
 
                             <h2 className="py-3 px-7 flex items-center uppercase font-extrabold bg-white-light/30 dark:bg-dark dark:bg-opacity-[0.08] -mx-4 mb-1">
@@ -236,10 +259,10 @@ const Sidebar = () => {
                                 </ul>
                             </li>
 
-                            {/* <h2 className="py-3 px-7 flex items-center uppercase font-extrabold bg-white-light/30 dark:bg-dark dark:bg-opacity-[0.08] -mx-4 mb-1">
+                            <h2 className="py-3 px-7 flex items-center uppercase font-extrabold bg-white-light/30 dark:bg-dark dark:bg-opacity-[0.08] -mx-4 mb-1">
                                 <IconMinus className="w-4 h-5 flex-none hidden" />
                                 <span>{t('user_interface')}</span>
-                            </h2> */}
+                            </h2>
 
                             <li className="menu nav-item">
                                 <button type="button" className={`${currentMenu === 'component' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('component')}>
