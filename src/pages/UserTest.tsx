@@ -7,22 +7,20 @@ import { useState, useEffect } from 'react';
 
 function UserTest() {
     const [rowData, setRowData] = useState([]);
-    const [columnDefs, setColumnDefs] = useState([]);
     useEffect(() => {
         fetch('http://localhost:3001/users-hr')
-            .then(async (result) => await result.json())
+            .then((result) => result.json())
             .then((data) => {
                 setRowData(data);
             });
     }, []);
+
     return (
         <div>
             <div className="grid gap-6">
                 <div className="grid lg:grid-cols-1 gap-6">
                     <div className="panel">
-                        <div className="ag-theme-quartz">
-                            <DefaultDataTable tableData={rowData} />
-                        </div>
+                        <DefaultDataTable tableData={rowData} />
                     </div>
                 </div>
                 <div className="grid lg:grid-cols-5 gap-6">
