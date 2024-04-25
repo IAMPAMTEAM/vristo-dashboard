@@ -80,6 +80,9 @@ module.exports = {
                     },
                 },
             }),
+            animation: {
+                // TODO: animation func add
+            },
         },
     },
     plugins: [

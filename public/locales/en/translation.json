@@ -1,6 +1,7 @@
 {
     "dashboard": "Dashboard",
     "topology": "Topology",
+    "approval": "Approval",
     "regionalResources": "Regional Resources",
     "subnets": "Subnets",
     "vpcGateways": "VPC Gateways",
