@@ -9,6 +9,7 @@ const SubnetRoutes = lazy(() => import('@/pages/Topology/SubnetRoutes'));
 const VPCGateways = lazy(() => import('@/pages/Topology/VPCGateways'));
 const LoadBalancers = lazy(() => import('@/pages/Topology/LoadBalancers'));
 const VPCPeering = lazy(() => import('@/pages/Topology/VPCPeering'));
+const Approval = lazy(() => import('@/pages/Approval'));
 
 const routes = [
     // dashboard
@@ -60,6 +61,11 @@ const routes = [
     {
         path: '/vpc-peering',
         element: <VPCPeering />,
+        layout: 'default',
+    },
+    {
+        path: '/approval',
+        element: <Approval />,
         layout: 'default',
     },
 ];

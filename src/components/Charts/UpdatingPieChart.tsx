@@ -89,6 +89,8 @@ export const UpdatingPieChart = () => {
                 <div className="btn bg-[#A79277] border-none text-white" onClick={updateLastWeek}>
                     {LAST_WEEK_SUB}
                 </div>
+
+                <button type="button" className="inline-flex items-center px-4 py-2 font-semibold leading-6 "></button>
             </div>
         </div>
     );
