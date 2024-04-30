@@ -6,21 +6,23 @@ import DefaultDataTable from '@/components/DataTables/DefaultDataTable';
 import { useState, useEffect } from 'react';
 
 function UserTest() {
-    const [rowData, setRowData] = useState([]);
+    const [tableData, settableData] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:3001/users-hr')
+        fetch('https://lhh-iampam-demodata.s3.ap-northeast-2.amazonaws.com/iampam-zerotrust-v0.3_user-hr.json')
             .then((result) => result.json())
             .then((data) => {
-                setRowData(data);
+                settableData(data);
             });
     }, []);
+
+    const tableOption = {};
 
     return (
         <div>
             <div className="grid gap-6">
                 <div className="grid lg:grid-cols-1 gap-6">
                     <div className="panel">
-                        <DefaultDataTable tableData={rowData} />
+                        <DefaultDataTable tableData={tableData} tableOption={tableOption} />
                     </div>
                 </div>
                 <div className="grid lg:grid-cols-5 gap-6">
