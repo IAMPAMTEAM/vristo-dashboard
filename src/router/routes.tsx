@@ -11,6 +11,7 @@ const VPCPeering = lazy(() => import('@/pages/Topology/VPCPeering'));
 const Approval = lazy(() => import('@/pages/Approval'));
 const EntryContainer = lazy(() => import('@/pages/Entry/EntryContainer'));
 const HR = lazy(() => import('@/pages/Users/HR'));
+const ChatContainer = lazy(() => import('@/pages/Chat/ChatContainer'));
 
 const routes = [
     {
@@ -78,6 +79,11 @@ const routes = [
         layout: 'default',
         element: <HR />,
     },
+    {
+        path: '/chat',
+        layout: 'default',
+        element: <ChatContainer />,
+    }
 ];
 
 export { routes };

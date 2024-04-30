@@ -1,5 +1,5 @@
 import IconLogout from '@/components/Icon/IconLogout';
-import {useNavigate} from 'react-rouer-dom'
+import { useNavigate } from 'react-router-dom';
 
 const EntryMenu = () => {
     const menuList = [
@@ -11,33 +11,38 @@ const EntryMenu = () => {
         {
             logo: '',
             menu: 'IAM Assets',
+            path: '/assets/server-aws',
         },
         {
             logo: '',
             menu: 'IAM Policy',
+            path: '/policy/portal'
         },
         {
             logo: '',
             menu: 'IAM Monitor',
+            path: '/monitor'
         },
         {
             logo: '',
             menu: 'IAM Audit',
+            path: '/audit'
         },
         {
             logo: '',
             menu: 'Compliance',
+            path: '/compliance'
         },
         {
             logo: '',
             menu: 'Admin',
+            path: '/admin'
         },
     ];
 
-    // const navigateMenu = (idx: number) => {
-    //     // TODO: Navigate Menu
-    //     menuList.forEach((menu) => {});
-    // };
+    const navigate = useNavigate()
+
+    const navigateMenu = (path: string) => navigate(path)
 
     return (
         <div className="panel flex flex-col gap-16 h-full w-full bg-[#F6F5F2] rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100 p-12 border-none">
@@ -49,7 +54,7 @@ const EntryMenu = () => {
 
             <div className="grid lg:grid-cols-7 grid-flow-col gap-8 p-8">
                 {menuList.map((menu, idx) => (
-                    <button className="lg:col-span-1 flex flex-col items-center h-full w-full bg-[#86469C] rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100 p-8 border-none hover:bg-opacity-30 hover:cursor-pointer" >
+                    <button className="lg:col-span-1 flex flex-col items-center h-full w-full bg-[#86469C] rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100 p-8 border-none hover:bg-opacity-30 hover:cursor-pointer" onClick={() => navigateMenu(menu['path'])}>
                         <img src={menu['logo']} alt={menu['menu']} />
                         <p className="mt-2 font-extrabold text-xl tracking-tighter">{menu['menu']}</p>
                     </button>
