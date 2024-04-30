@@ -1,7 +1,7 @@
 import IconShoppingBag from '@/components/Icon/IconShoppingBag';
 import { useState } from 'react';
 
-const Index = () => {
+const Profile = () => {
     const [cardRows, setCardRows] = useState(0);
     const [cardColumns, setCardColumns] = useState(0);
     const [totalWidth, setTotalWidth] = useState(0);
@@ -247,4 +247,4 @@ const Index = () => {
     );
 };
 
-export default Index;
+export default Profile;

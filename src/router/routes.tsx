@@ -1,5 +1,4 @@
 import { lazy } from 'react';
-const Index = lazy(() => import('@/pages/Index'));
 const Chart = lazy(() => import('@/pages/Chart'));
 const Test = lazy(() => import('@/pages/Test'));
 const UserTest = lazy(() => import('@/pages/UserTest'));
@@ -10,13 +9,20 @@ const VPCGateways = lazy(() => import('@/pages/Topology/VPCGateways'));
 const LoadBalancers = lazy(() => import('@/pages/Topology/LoadBalancers'));
 const VPCPeering = lazy(() => import('@/pages/Topology/VPCPeering'));
 const Approval = lazy(() => import('@/pages/Approval'));
+const EntryContainer = lazy(() => import('@/pages/Entry/EntryContainer'));
+const HR = lazy(() => import('@/pages/Users/HR'));
+const ChatContainer = lazy(() => import('@/pages/Chat/ChatContainer'));
 
 const routes = [
-    // dashboard
     {
         path: '/',
-        element: <Index />,
-        layout: 'default',
+        layout: 'blank',
+        // element: <EntryContainer />,
+    },
+    {
+        path: '/entry',
+        element: <EntryContainer />,
+        layout: 'blank',
     },
     {
         path: '/chart',
@@ -68,6 +74,16 @@ const routes = [
         element: <Approval />,
         layout: 'default',
     },
+    {
+        path: '/users/hr',
+        layout: 'default',
+        element: <HR />,
+    },
+    {
+        path: '/chat',
+        layout: 'default',
+        element: <ChatContainer />,
+    }
 ];
 
 export { routes };
