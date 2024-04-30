@@ -1,7 +1,7 @@
-import { SingleFlowChart } from '@/components/Charts/SingleFlowChart';
-import { MultipleRadarChart } from '@/components/Charts/MultipleRadarChart';
-import { UpdatingPieChart } from '@/components/Charts/UpdatingPieChart';
-import { VerticalBarChart } from '@/components/Charts/VerticalBarChart';
+import { SingleFlowChart } from '@/components/Charts/_partials/SingleFlowChart';
+import { MultipleRadarChart } from '@/components/Charts/_partials/MultipleRadarChart';
+import { UpdatingPieChart } from '@/components/Charts/_partials/UpdatingPieChart';
+import { VerticalBarChart } from '@/components/Charts/_partials/VerticalBarChart';
 import DefaultDataTable from '@/components/DataTables/DefaultDataTable';
 import { useState, useEffect } from 'react';
 

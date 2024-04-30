@@ -10,8 +10,11 @@ const LoadBalancers = lazy(() => import('@/pages/Topology/LoadBalancers'));
 const VPCPeering = lazy(() => import('@/pages/Topology/VPCPeering'));
 const Approval = lazy(() => import('@/pages/Approval'));
 const EntryContainer = lazy(() => import('@/pages/Entry/EntryContainer'));
-const HR = lazy(() => import('@/pages/Users/HR'));
 const ChatContainer = lazy(() => import('@/pages/Chat/ChatContainer'));
+const HR = lazy(() => import('@/pages/Users/HR'));
+const UsersDevOps = lazy(() => import('@/pages/Users/UsersDevOps'))
+const UsersApp = lazy(() => import('@/pages/Users/UsersApp'))
+const UsersSaaS = lazy(() => import('@/pages/Users/UsersSaaS'))
 
 const routes = [
     {
@@ -78,6 +81,21 @@ const routes = [
         path: '/users/hr',
         layout: 'default',
         element: <HR />,
+    },
+    {
+        path: '/users/dev-ops',
+        layout: 'default',
+        element: <UsersDevOps />
+    },
+    {
+        path: '/users/app',
+        layout: 'default',
+        element: <UsersApp />
+    },
+    {
+        path: '/users/saas',
+        layout: 'default',
+        element: <UsersSaaS />
     },
     {
         path: '/chat',
