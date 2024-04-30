@@ -1,3 +1,4 @@
+import Chat from '@/pages/Chat';
 import { lazy } from 'react';
 const Index = lazy(() => import('@/pages/Index'));
 const Chart = lazy(() => import('@/pages/Chart'));
