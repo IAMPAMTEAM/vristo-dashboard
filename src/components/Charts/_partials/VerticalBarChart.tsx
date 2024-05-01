@@ -2,43 +2,21 @@ import { useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 
 interface Props {
-  data: number[][];
+  data: {
+    name: string;
+    data: number[];
+  }[];
   colors: string[];
   categories: string[];
 }
 
 export const VerticalBarChart = (props: Props) => {
   const [chartData, setChartData] = useState({
-    series: [
-      {
-        name: 'Full Time',
-        data: [440, 550],
-      },
-      {
-        name: 'Part Time',
-        data: [680, 850],
-      },
-      {
-        name: 'Temporary',
-        data: [350, 410],
-      },
-      {
-        name: 'Intern',
-        data: [350, 410],
-      },
-      {
-        name: 'Contactor',
-        data: [350, 401],
-      },
-      {
-        name: 'Freelance',
-        data: [135, 241],
-      },
-    ],
+    series: props.data,
     options: {
       chart: {
         type: 'bar',
-        height: 350,
+        height: 300,
       },
       plotOptions: {
         bar: {
@@ -47,7 +25,7 @@ export const VerticalBarChart = (props: Props) => {
           endingShape: 'rounded',
         },
       },
-      colors: ['#FFA1F5', '#BC7AF9', '#4d5dc5', '#A6FF96', '#B5F1CC', '#FF8787'],
+      colors: props.colors,
       dataLabels: {
         enabled: false,
       },
@@ -57,17 +35,10 @@ export const VerticalBarChart = (props: Props) => {
         colors: ['transparent'],
       },
       xaxis: {
-        categories: ['Last Week', 'This Week'],
+        categories: props.categories,
       },
       fill: {
         opacity: 1,
-      },
-      tooltip: {
-        // y: {
-        //     formatter: function (val) {
-        //         return '$ ' + val + ' thousands';
-        //     },
-        // },
       },
     },
   });

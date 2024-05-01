@@ -23,10 +23,30 @@ const UserTest = () => {
   ];
 
   const verticalBarData = [
-    [440, 550],
-    [680, 850],
-    [350, 410],
-    [350, 200],
+    {
+      name: 'Full Time',
+      data: [440, 550],
+    },
+    {
+      name: 'Part Time',
+      data: [680, 850],
+    },
+    {
+      name: 'Temporary',
+      data: [350, 410],
+    },
+    {
+      name: 'Intern',
+      data: [350, 410],
+    },
+    {
+      name: 'Contactor',
+      data: [350, 401],
+    },
+    {
+      name: 'Freelance',
+      data: [135, 241],
+    },
   ];
 
   return (
@@ -99,7 +119,7 @@ const UserTest = () => {
             <SingleFlowChart series={[21, 66]} category='계약직' categoryEn='Temporary' color='#219C90' updatePoint={0.7} />
           </div>
           <div className='panel lg:col-span-2 lg:row-span-2'>
-            <VerticalBarChart />
+            <VerticalBarChart data={verticalBarData} colors={['#FFA1F5', '#BC7AF9', '#4d5dc5', '#A6FF96', '#B5F1CC', '#FF8787']} categories={['Last Week', 'This Week']} />
           </div>
           <div className='panel lg:col-span-1 lg:row-span-1'>
             <SingleFlowChart category='인턴' categoryEn='Intern' color='#FF204E' series={[50, 31]} updatePoint={-0.1} />

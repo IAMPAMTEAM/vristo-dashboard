@@ -89,11 +89,11 @@ export const UpdatingPieChart = (props: Props) => {
   return (
     <section>
       <ReactApexChart options={chartData.options} series={chartData.series} type='pie' height={350} />
-      <div className='flex justify-center mt-[81px]'>
-        <button className='btn mr-5 bg-[#A79277] border-none text-white' onClick={updateThisWeek}>
+      <div className='flex justify-center mt-[81px] join'>
+        <button className='btn join-item bg-[#A79277] border-none text-white' onClick={updateThisWeek}>
           {THIS_WEEK_SUB}
         </button>
-        <button className='btn bg-[#A79277] border-none text-white' onClick={updateLastWeek}>
+        <button className='btn join-item bg-[#A79277] border-none text-white' onClick={updateLastWeek}>
           {LAST_WEEK_SUB}
         </button>
       </div>
