@@ -2,8 +2,17 @@ import DefaultDataTable from '@/components/DataTables/DefaultDataTable';
 import { MultipleRadarChart } from '@/components/Charts/_partials/MultipleRadarChart';
 import { UpdatingPieChart } from '@/components/Charts/_partials/UpdatingPieChart';
 import { VerticalBarChart } from '@/components/Charts/_partials/VerticalBarChart';
+import { useEffect, useState } from 'react';
 
 const UsersDevOps = () => {
+  const [tableData, setTableData] = useState([]);
+  useEffect(() => {
+    fetch('https://lhh-iampam-demodata.s3.ap-northeast-2.amazonaws.com/iampam-zerotrust-v0.3_users-devops.json')
+      .then((result) => result.json())
+      .then((data) => {
+        setTableData(data);
+      });
+  }, []);
   const data = [
     [280, 175, 390, 154, 140, 245],
     [410, 165, 305, 164, 245, 245],
@@ -37,24 +46,35 @@ const UsersDevOps = () => {
       data: [135, 241],
     },
   ];
-  // TODO: Data Table
   const tableOption = {};
+
+  const sortByDescendingOrder = (categories, data) => {
+    return [...categories].sort((a, b) => {
+      const valueA = data[categories.indexOf(a)];
+      const valueB = data[categories.indexOf(b)];
+      return valueB - valueA;
+    });
+  };
+
+  // categories에 따라 내림차순으로 정렬된 배열 생성
+  const sortedCategories1 = sortByDescendingOrder(categories, data[0]);
+  const sortedCategories2 = sortByDescendingOrder(categories, data[1]);
+
   return (
     <div>
       <div className='grid gap-6'>
         <div className='grid lg:grid-cols-1 gap-6'>
           <div className='panel'>
-            <DefaultDataTable tableData={undefined} tableOption={tableOption} />
+            <DefaultDataTable tableData={tableData} tableOption={tableOption} />
           </div>
         </div>
-        <div className='grid lg:grid-cols-5 gap-6'>
-          <div className='panel lg:col-span-2'>
+        <div className='grid lg:grid-cols-2 gap-6'>
+          <div className='panel lg:col-span-1'>
             <MultipleRadarChart data={data} title='Allowed Users Compare - Radar Chart' colors={['#FFBB70', '#FFEC9E']} categories={categories} />
           </div>
-          <div className='panel lg:col-span-2'>
+          <div className='panel lg:col-span-1'>
             <UpdatingPieChart data={data} labels={categories} colors={piechartColors} title='Allowed Users Compare - Pie Chart' />
           </div>
-          <div className='panel lg:col-span-1'></div>
         </div>
         <div className='grid lg:grid-cols-5 lg:grid-rows-3 gap-6'>
           <div className='panel lg:col-span-1 lg:row-span-2'>
@@ -70,12 +90,12 @@ const UsersDevOps = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {categories.map((category, idx) => {
+                  {sortedCategories1.map((category, idx) => {
                     return (
-                      <tr>
+                      <tr key={idx}>
                         <th>{idx + 1}</th>
                         <td>{category}</td>
-                        <td>{data[0][idx]}</td>
+                        <td>{data[0][categories.indexOf(category)]}</td>
                       </tr>
                     );
                   })}
@@ -96,12 +116,12 @@ const UsersDevOps = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {categories.map((category, idx) => {
+                  {sortedCategories1.map((category, idx) => {
                     return (
-                      <tr>
+                      <tr key={idx}>
                         <th>{idx + 1}</th>
                         <td>{category}</td>
-                        <td>{data[1][idx]}</td>
+                        <td>{data[1][categories.indexOf(category)]}</td>
                       </tr>
                     );
                   })}

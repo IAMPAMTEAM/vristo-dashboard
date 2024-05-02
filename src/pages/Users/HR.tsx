@@ -6,12 +6,12 @@ import DefaultDataTable from '@/components/DataTables/DefaultDataTable';
 import { useState, useEffect } from 'react';
 
 const UserTest = () => {
-  const [tableData, settableData] = useState([]);
+  const [tableData, setTableData] = useState([]);
   useEffect(() => {
     fetch('https://lhh-iampam-demodata.s3.ap-northeast-2.amazonaws.com/iampam-zerotrust-v0.3_user-hr.json')
       .then((result) => result.json())
       .then((data) => {
-        settableData(data);
+        setTableData(data);
       });
   }, []);
 

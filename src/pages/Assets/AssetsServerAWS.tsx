@@ -1,9 +1,18 @@
 import DefaultDataTable from '@/components/DataTables/DefaultDataTable';
 import { StackedVerticalBarChart } from '@/components/Charts/_partials/StackedVerticalBarChart';
 import { UpdatingPieChart } from '@/components/Charts/_partials/UpdatingPieChart';
+import { useEffect, useState } from 'react';
 
 const AssetsServerAWS = () => {
   const tableOption = {};
+  const [tableData, setTableData] = useState([]);
+  useEffect(() => {
+    fetch('https://lhh-iampam-demodata.s3.ap-northeast-2.amazonaws.com/iampam-zerotrust-v0.3_assets-server-aws.json')
+      .then((result) => result.json())
+      .then((data) => {
+        setTableData(data);
+      });
+  }, []);
   const stackedVerticalBarData = [
     {
       name: 'AWS',
@@ -27,17 +36,17 @@ const AssetsServerAWS = () => {
     <div>
       <div className='grid gap-6'>
         <div className='panel'>
-          <DefaultDataTable tableData={undefined} tableOption={tableOption} />
+          <DefaultDataTable tableData={tableData} tableOption={tableOption} />
         </div>
         <div className='grid lg:grid-cols-2 gap-6'>
           <div className='panel lg:col-span-1 flex flex-col'>
             <StackedVerticalBarChart data={stackedVerticalBarData} categories={catgegories} title='Instance State Compare' colors={stackedVerticalBarColors} />
             <div className='stats stats-vertical lg:stats-horizontal shadow bg-[#F0F3FF]'>
-              <div className='stat text-center'>
+              <div className='stat text-center hover:opacity-70 hover:cursor-pointer'>
                 <div className='stat-title'>Stopped</div>
                 <div className='stat-value'>430</div>
               </div>
-              <div className='stat text-center'>
+              <div className='stat text-center hover:opacity-70 hover:cursor-pointer'>
                 <div className='stat-title'>Running</div>
                 <div className='stat-value'>540</div>
               </div>

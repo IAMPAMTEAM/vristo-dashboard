@@ -16,10 +16,15 @@ const UsersDevOps = lazy(() => import('@/pages/Users/UsersDevOps'));
 const UsersApp = lazy(() => import('@/pages/Users/UsersApp'));
 const UsersSaaS = lazy(() => import('@/pages/Users/UsersSaaS'));
 const AssetsServerAWS = lazy(() => import('@/pages/Assets/AssetsServerAWS'));
+const AssetsServerOnpremise = lazy(() => import('@/pages/Assets/ServerOnpremise'));
 const AssetsServerAccessControl = lazy(() => import('@/pages/Assets/ServerAccessControl'));
 const AssetsDBAccessControl = lazy(() => import('@/pages/Assets/DBAccessControl'));
+const AssetsDBAWSRDS = lazy(() => import('@/pages/Assets/DBAWSRDS'));
+const AssetsDBOnpremise = lazy(() => import('@/pages/Assets/DBOnpremise'));
 
 const PolicyPortal = lazy(() => import('@/pages/Policy/Portal'));
+
+const Compliance = lazy(() => import('@/pages/Compliance'));
 
 const routes = [
   {
@@ -113,6 +118,11 @@ const routes = [
     element: <AssetsServerAWS />,
   },
   {
+    path: '/assets/server-onpremise',
+    layout: 'default',
+    element: <AssetsServerOnpremise />,
+  },
+  {
     path: '/assets/server-access-control',
     layout: 'default',
     element: <AssetsServerAccessControl />,
@@ -123,9 +133,24 @@ const routes = [
     element: <AssetsDBAccessControl />,
   },
   {
+    path: '/assets/db-aws-rds',
+    layout: 'default',
+    element: <AssetsDBAWSRDS />,
+  },
+  {
+    path: '/assets/db-onpremise',
+    layout: 'default',
+    element: <AssetsDBOnpremise />,
+  },
+  {
     path: '/policy/portal',
     layout: 'default',
     element: <PolicyPortal />,
+  },
+  {
+    path: '/compliance',
+    layout: 'default',
+    element: <Compliance />,
   },
 ];
 
