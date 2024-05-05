@@ -4,11 +4,22 @@ import { UpdatingPieChart } from '@/components/Charts/_partials/UpdatingPieChart
 import { VerticalBarChart } from '@/components/Charts/_partials/VerticalBarChart';
 import DefaultDataTable from '@/components/DataTables/DefaultDataTable';
 import { useState, useEffect } from 'react';
+import AccordionTabletest from '@/components/DataTables/AccordionTabletest';
+import AccordionTable from '@/components/DataTables/AccordionTable';
+import AccessPolicyDevopsTable from '@/components/DataTables/AccessPolicyDevopsTable';
+import OnclickGetRowDataTable from '@/components/DataTables/OnclickGetRowDataTable';
 
 function UserTest() {
     const [tableData, settableData] = useState([]);
+    const [onclickRowData, setOnclickRowData] = useState([]);
+
+    function getOnclickRowData(data) {
+        setOnclickRowData(data);
+        console.log(data);
+    }
+
     useEffect(() => {
-        fetch('https://lhh-iampam-demodata.s3.ap-northeast-2.amazonaws.com/iampam-zerotrust-v0.3_user-hr.json')
+        fetch('https://lhh-iampam-demodata.s3.ap-northeast-2.amazonaws.com/iampam-zerotrust-v0.3_users-saas.json')
             .then((result) => result.json())
             .then((data) => {
                 settableData(data);
@@ -23,6 +34,10 @@ function UserTest() {
                 <div className="grid lg:grid-cols-1 gap-6">
                     <div className="panel">
                         <DefaultDataTable tableData={tableData} tableOption={tableOption} />
+                        <OnclickGetRowDataTable getOnclickRowData={getOnclickRowData} tableData={tableData} tableOption={tableOption} />
+                        {/* <AccordionTabletest tableData={tableData} detailTableCol="Direction" tableOption={tableOption} /> */}
+                        {/* <AccordionTable /> */}
+                        {/* <AccessPolicyDevopsTable /> */}
                     </div>
                 </div>
                 <div className="grid lg:grid-cols-5 gap-6">

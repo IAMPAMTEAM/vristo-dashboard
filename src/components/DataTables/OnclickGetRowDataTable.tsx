@@ -4,7 +4,7 @@ import { GridApi, SizeColumnsToContentStrategy, SizeColumnsToFitGridStrategy, Si
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 
-export default function DefaultDataTable({ tableData, tableOption }) {
+export default function OnclickGetRowDataTable({ getOnclickRowData, tableData, tableOption }) {
     const defaultTableConfig = {
         tableHeight: 535,
         pagination: true,
@@ -41,6 +41,12 @@ export default function DefaultDataTable({ tableData, tableOption }) {
         };
     }, []);
 
+    const onSelectionChanged = useCallback(() => {
+        const selectedRows = gridRef.current!.api.getSelectedRows();
+        getOnclickRowData(selectedRows[0]);
+        console.log(selectedRows[0]);
+    }, []);
+
     return (
         <div className="ag-theme-alpine" style={{ height: tableConfig.tableHeight }}>
             <AgGridReact
@@ -52,6 +58,8 @@ export default function DefaultDataTable({ tableData, tableOption }) {
                 pagination={tableConfig.pagination}
                 paginationPageSize={tableConfig.paginationPageSize}
                 paginationPageSizeSelector={tableConfig.paginationPageSizeSelector}
+                onSelectionChanged={onSelectionChanged}
+                rowSelection={'single'}
             />
         </div>
     );

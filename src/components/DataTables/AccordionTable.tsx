@@ -64,6 +64,7 @@ const AccordionTable = () => {
                 },
             },
             getDetailRowData: (params) => {
+                console.log(params.data.Direction);
                 params.successCallback(params.data.Direction);
             },
         } as IDetailCellRendererParams<IAccount, ICallRecord>;
@@ -77,13 +78,6 @@ const AccordionTable = () => {
             });
     }, []);
 
-    const onFirstDataRendered = useCallback((params: FirstDataRenderedEvent) => {
-        // arbitrarily expand a row for presentational purposes
-        setTimeout(() => {
-            params.api.getDisplayedRowAtIndex(1)!.setExpanded(true);
-        }, 0);
-    }, []);
-
     return (
         <div style={{ height: 535 }} className={'ag-theme-quartz-dark'}>
             <AgGridReact<IAccount>
@@ -93,7 +87,6 @@ const AccordionTable = () => {
                 masterDetail={true}
                 detailCellRendererParams={detailCellRendererParams}
                 onGridReady={onGridReady}
-                onFirstDataRendered={onFirstDataRendered}
             />
         </div>
     );
