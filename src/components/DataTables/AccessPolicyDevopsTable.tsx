@@ -37,34 +37,33 @@ export default function AccessPolicyDevopsTable() {
         {
             headerName: 'Portal Policy',
             children: [
-                { headerName: 'Mgmt', field: 'Management' },
-                { field: 'Diag' },
-                { headerName: 'Monitor', field: 'Monitoring' },
-                { field: 'Audit' },
-                { field: 'Approval' },
-                { field: 'Admin' },
-                { field: 'Debug' },
+                { headerName: 'Mgmt', field: 'Management', cellRendererParams: { disabled: true } },
+                { field: 'Diag', cellRendererParams: { disabled: true } },
+                { headerName: 'Monitor', field: 'Monitoring', cellRendererParams: { disabled: true } },
+                { field: 'Audit', cellRendererParams: { disabled: true } },
+                { field: 'Approval', cellRendererParams: { disabled: true } },
+                { field: 'Admin', cellRendererParams: { disabled: true } },
+                { field: 'Debug', cellRendererParams: { disabled: true } },
             ],
         },
         {
             headerName: 'Access Privilage',
             children: [
-                { field: 'Server' },
-                { field: 'DB' },
-                { field: 'VPN' },
-                { field: 'Network' },
-                { field: 'AWS-IAM' },
-                { headerName: 'AWS IAM', field: 'AWS-IAM' },
-                { headerName: 'AWS EC2 Key', field: 'AWS-EC2Key' },
-                { headerName: 'AWS IAM/S3 Key', field: 'AWS-IAMS3Key' },
-                { headerName: 'LotteDFS SVN', field: 'LotteDFS-SVN' },
-                { headerName: 'LotteDFS VDI', field: 'LotteDFS-VDI' },
-                { headerName: 'LotteDFS JIRA', field: 'LotteDFS-JIRA' },
+                { field: 'Server', cellRendererParams: { disabled: true } },
+                { field: 'DB', cellRendererParams: { disabled: true } },
+                { field: 'VPN', cellRendererParams: { disabled: true } },
+                { field: 'Network', cellRendererParams: { disabled: true } },
+                { headerName: 'AWS-IAM', field: 'AWSIAM', cellRendererParams: { disabled: true } },
+                { headerName: 'AWS EC2 Key', field: 'AWSEC2Key', cellRendererParams: { disabled: true } },
+                { headerName: 'AWS IAM/S3 Key', field: 'AWSIAMS3Key', cellRendererParams: { disabled: true } },
+                { headerName: 'LotteDFS SVN', field: 'LotteDFSSVN', cellRendererParams: { disabled: true } },
+                { headerName: 'LotteDFS VDI', field: 'LotteDFSVDI', cellRendererParams: { disabled: true } },
+                { headerName: 'LotteDFS JIRA', field: 'LotteDFSJIRA', cellRendererParams: { disabled: true } },
             ],
         },
         {
             headerName: 'OTP Policy',
-            children: [{ field: 'Server' }, { field: 'DB' }, { field: 'VPN' }, { field: 'Portal' }],
+            children: [{ field: 'OTPServer' }, { field: 'OTPDB' }, { field: 'OTPVPN' }, { field: 'OTPPortal' }],
         },
     ]);
 
@@ -75,7 +74,7 @@ export default function AccessPolicyDevopsTable() {
     }, []);
 
     const onGridReady = useCallback((params: GridReadyEvent) => {
-        fetch('https://www.ag-grid.com/example-assets/olympic-winners.json')
+        fetch('https://lhh-iampam-demodata.s3.ap-northeast-2.amazonaws.com/accesspolicy-devops.json')
             .then((resp) => resp.json())
             .then((data) => setRowData(data));
     }, []);

@@ -33,11 +33,11 @@ function UserTest() {
             <div className="grid gap-6">
                 <div className="grid lg:grid-cols-1 gap-6">
                     <div className="panel">
-                        <DefaultDataTable tableData={tableData} tableOption={tableOption} />
-                        <OnclickGetRowDataTable getOnclickRowData={getOnclickRowData} tableData={tableData} tableOption={tableOption} />
+                        {/* <DefaultDataTable tableData={tableData} tableOption={tableOption} /> */}
+                        {/* <OnclickGetRowDataTable getOnclickRowData={getOnclickRowData} tableData={tableData} tableOption={tableOption} /> */}
                         {/* <AccordionTabletest tableData={tableData} detailTableCol="Direction" tableOption={tableOption} /> */}
                         {/* <AccordionTable /> */}
-                        {/* <AccessPolicyDevopsTable /> */}
+                        <AccessPolicyDevopsTable />
                     </div>
                 </div>
                 <div className="grid lg:grid-cols-5 gap-6">
