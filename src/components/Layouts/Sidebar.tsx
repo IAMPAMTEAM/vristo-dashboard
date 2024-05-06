@@ -207,16 +207,7 @@ const Sidebar = () => {
                 <AnimateHeight duration={300} height={currentMenu === 'iamWorkflow' ? 'auto' : 0}>
                   <ul className='sub-menu text-gray-500'>
                     <li>
-                      <NavLink to='/policy/portal'>{t('policyPortal')}</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to='/policy/dev-ops'>{t('policyDevops')}</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to='/policy/app'>{t('policyApp')}</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to='/policy/saas'>{t('policySaaS')}</NavLink>
+                      <NavLink to='/workflow/main'>{t('workflowMain')}</NavLink>
                     </li>
                   </ul>
                 </AnimateHeight>

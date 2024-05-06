@@ -1,0 +1,57 @@
+[
+  {
+    "awsiamCategory": "aws iam",
+    "infraType": "aws",
+    "awsiamRequestWhat": "new",
+    "awsiamAwsAccount": 123456789012,
+    "awsiamUsername": "hsn9098",
+    "awsiamPolicyName": "policy-iampam-devops",
+    "awsiamRenewalDate": 365,
+    "awsiamRenewalDue": "23/1/2025",
+    "awsiamCredentialsUri": "https://iampam.io/awsiam/credentials/hsn9098-7asd313"
+  },
+  {
+    "awsiamCategory": "aws iam",
+    "infraType": "aws",
+    "awsiamRequestWhat": "new",
+    "awsiamAwsAccount": 123456789013,
+    "awsiamUsername": "artincorea",
+    "awsiamPolicyName": "policy-iampam-devops",
+    "awsiamRenewalDate": 365,
+    "awsiamRenewalDue": "23/1/2025",
+    "awsiamCredentialsUri": "https://iampam.io/awsiam/credentials/artincorea-82xd121"
+  },
+  {
+    "awsiamCategory": "aws iam",
+    "infraType": "aws",
+    "awsiamRequestWhat": "delete",
+    "awsiamAwsAccount": 123456789014,
+    "awsiamUsername": "taeyoung1",
+    "awsiamPolicyName": "policy-iampam-outsourcing",
+    "awsiamRenewalDate": "",
+    "awsiamRenewalDue": "",
+    "awsiamCredentialsUri": "https://iampam.io/awsiam/credentials/taeyoung1-213d125"
+  },
+  {
+    "awsiamCategory": "aws iam",
+    "infraType": "aws",
+    "awsiamRequestWhat": "renewal",
+    "awsiamAwsAccount": 123456789015,
+    "awsiamUsername": "pdhldf",
+    "awsiamPolicyName": "policy-iampam-operation",
+    "awsiamRenewalDate": 365,
+    "awsiamRenewalDue": "23/1/2025",
+    "awsiamCredentialsUri": "https://iampam.io/awsiam/credentials/pdhldf-15x5233"
+  },
+  {
+    "awsiamCategory": "aws iam",
+    "infraType": "aws",
+    "awsiamRequestWhat": "update",
+    "awsiamAwsAccount": 123456789016,
+    "awsiamUsername": "ksoonbo",
+    "awsiamPolicyName": "policy-iampam-operation",
+    "awsiamRenewalDate": 365,
+    "awsiamRenewalDue": "23/1/2025",
+    "awsiamCredentialsUri": "https://iampam.io/awsiam/credentials/ksoonbo-4523423"
+  }
+]

@@ -9,7 +9,8 @@ const Compliance = () => {
 
   axios.defaults.withCredentials = true;
   useEffect(() => {
-    axios.get('http://13.209.176.171:9040/create?account=mz_vincent', { withCredentials: true }).then((result) => {
+    axios.get('http://13.209.176.171:9040/create?account=mz_vincent').then((result) => {
+      console.log('result');
       console.log(result);
     });
   });

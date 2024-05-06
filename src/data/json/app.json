@@ -1,0 +1,52 @@
+[
+  {
+    "infraType": "hybrid",
+    "appName": "Jira,ERP",
+    "appRequestWhat": "new",
+    "appUsername": "hsn9098",
+    "appOtp": "Required",
+    "appPolicyName": "policy-iampam-devops",
+    "appRenewalDate": 365,
+    "appRenewalDue": "23/1/2025"
+  },
+  {
+    "infraType": "hybrid",
+    "appName": "ERP,Git",
+    "appRequestWhat": "new",
+    "appUsername": "artincorea",
+    "appOtp": "Required",
+    "appPolicyName": "policy-iampam-devops",
+    "appRenewalDate": 365,
+    "appRenewalDue": "23/1/2025"
+  },
+  {
+    "infraType": "hybrid",
+    "appName": "Jenkins,Git,Jira",
+    "appRequestWhat": "delete",
+    "appUsername": "taeyoung1",
+    "appOtp": "Required",
+    "appPolicyName": "policy-iampam-outsourcing",
+    "appRenewalDate": 365,
+    "appRenewalDue": "23/1/2025"
+  },
+  {
+    "infraType": "hybrid",
+    "appName": "Jenkins,Git,Jira,Git",
+    "appRequestWhat": "renewal",
+    "appUsername": "pdhldf",
+    "appOtp": "No",
+    "appPolicyName": "policy-iampam-operation",
+    "appRenewalDate": 365,
+    "appRenewalDue": "23/1/2025"
+  },
+  {
+    "infraType": "hybrid",
+    "appName": "Jira,ERP",
+    "appRequestWhat": "new",
+    "appUsername": "ksoonbo",
+    "appOtp": "No",
+    "appPolicyName": "policy-iampam-operation",
+    "appRenewalDate": 365,
+    "appRenewalDue": "23/1/2025"
+  }
+]

@@ -26,6 +26,8 @@ const PolicyPortal = lazy(() => import('@/pages/Policy/Portal'));
 
 const Compliance = lazy(() => import('@/pages/Compliance'));
 
+const WorkflowMain = lazy(() => import('@/pages/Workflow/WorkflowMain'));
+
 const routes = [
   {
     path: '/',
@@ -151,6 +153,11 @@ const routes = [
     path: '/compliance',
     layout: 'default',
     element: <Compliance />,
+  },
+  {
+    path: '/workflow/main',
+    layout: 'default',
+    element: <WorkflowMain />,
   },
 ];
 
