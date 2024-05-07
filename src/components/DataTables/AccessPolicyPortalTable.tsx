@@ -15,7 +15,7 @@ import {
     SizeColumnsToFitProvidedWidthStrategy,
 } from 'ag-grid-community';
 
-export default function AccessPolicyDevopsTable() {
+export default function AccessPolicyPortalTable() {
     const defaultTableConfig = {
         tableHeight: 535,
         pagination: true,
@@ -36,34 +36,11 @@ export default function AccessPolicyDevopsTable() {
         },
         {
             headerName: 'Portal Policy',
-            children: [
-                { headerName: 'Mgmt', field: 'Management' },
-                { field: 'Diag' },
-                { headerName: 'Monitor', field: 'Monitoring' },
-                { field: 'Audit' },
-                { field: 'Approval' },
-                { field: 'Admin' },
-                { field: 'Debug' },
-            ],
-        },
-        {
-            headerName: 'Access Privilage',
-            children: [
-                { field: 'Server' },
-                { field: 'DB' },
-                { field: 'VPN' },
-                { field: 'Network' },
-                { headerName: 'AWS-IAM', field: 'AWSIAM' },
-                { headerName: 'AWS EC2 Key', field: 'AWSEC2Key' },
-                { headerName: 'AWS IAM/S3 Key', field: 'AWSIAMS3Key' },
-                { headerName: 'LotteDFS SVN', field: 'LotteDFSSVN' },
-                { headerName: 'LotteDFS VDI', field: 'LotteDFSVDI' },
-                { headerName: 'LotteDFS JIRA', field: 'LotteDFSJIRA' },
-            ],
+            children: [{ field: 'Mgmt' }, { field: 'Diag' }, { field: 'Monitor' }, { field: 'Audit' }, { field: 'Approval' }, { field: 'Admin' }, { field: 'Debug' }],
         },
         {
             headerName: 'OTP Policy',
-            children: [{ field: 'OTPServer' }, { field: 'OTPDB' }, { field: 'OTPVPN' }, { field: 'OTPPortal' }],
+            children: [{ headerName: 'Portal', field: 'OTPPortal' }],
         },
     ]);
 
@@ -74,7 +51,7 @@ export default function AccessPolicyDevopsTable() {
     }, []);
 
     const onGridReady = useCallback((params: GridReadyEvent) => {
-        fetch('https://lhh-iampam-demodata.s3.ap-northeast-2.amazonaws.com/accesspolicy-devops.json')
+        fetch('https://lhh-iampam-demodata.s3.ap-northeast-2.amazonaws.com/accesspolicy-portal.json')
             .then((resp) => resp.json())
             .then((data) => setRowData(data));
     }, []);

@@ -8,6 +8,10 @@ import AccordionTabletest from '@/components/DataTables/AccordionTabletest';
 import AccordionTable from '@/components/DataTables/AccordionTable';
 import AccessPolicyDevopsTable from '@/components/DataTables/AccessPolicyDevopsTable';
 import OnclickGetRowDataTable from '@/components/DataTables/OnclickGetRowDataTable';
+import DefaultDataTableFitWidth from '@/components/DataTables/DefaultDataTableFitWidth';
+import AccessPolicyAppTable from '@/components/DataTables/AccessPolicyAppTable';
+import AccessPolicySaaSTable from '@/components/DataTables/AccessPolicySaaSTable';
+import AccessPolicyPortalTable from '@/components/DataTables/AccessPolicyPortalTable';
 
 function UserTest() {
     const [tableData, settableData] = useState([]);
@@ -33,11 +37,14 @@ function UserTest() {
             <div className="grid gap-6">
                 <div className="grid lg:grid-cols-1 gap-6">
                     <div className="panel">
-                        {/* <DefaultDataTable tableData={tableData} tableOption={tableOption} /> */}
+                        {/* <DefaultDataTableFitWidth tableData={tableData} tableOption={tableOption} /> */}
                         {/* <OnclickGetRowDataTable getOnclickRowData={getOnclickRowData} tableData={tableData} tableOption={tableOption} /> */}
                         {/* <AccordionTabletest tableData={tableData} detailTableCol="Direction" tableOption={tableOption} /> */}
                         {/* <AccordionTable /> */}
                         <AccessPolicyDevopsTable />
+                        <AccessPolicyAppTable />
+                        <AccessPolicySaaSTable />
+                        <AccessPolicyPortalTable />
                     </div>
                 </div>
                 <div className="grid lg:grid-cols-5 gap-6">
