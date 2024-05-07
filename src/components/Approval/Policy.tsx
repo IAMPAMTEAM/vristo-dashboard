@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react';
 import DefaultDataTable from '../DataTables/DefaultDataTable';
-import IconRetry from '@/assets/icons/reload.svg';
-import IconChecks from '../Icon/IconChecks';
 import IconTrash from '../Icon/IconTrash';
 import IconPlus from '../Icon/IconPlus';
 import IconRefresh from '../Icon/IconRefresh';
 
-const Policy = (accessResource: any) => {
+const Policy = ({ formType }: any) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [processData, setProcessData] = useState([]);
   const [accountData, setAccountData] = useState([]);
@@ -27,9 +25,11 @@ const Policy = (accessResource: any) => {
       .then((result) => result.json())
       .then((data) => setNotesData(data));
 
-    if (accessResource.accessResource) {
-      console.log(accessResource.accessResource['formType']);
-      switch (accessResource.accessResource['formType']) {
+    console.log(formType);
+    // setResource(formType);
+    // console.log(resource, 'dfasfadsfds');
+    if (formType) {
+      switch (formType) {
         case 'server':
           fetch('https://sy-workflow-demodata.s3.us-west-2.amazonaws.com/server.json')
             .then((result) => result.json())
@@ -70,12 +70,8 @@ const Policy = (accessResource: any) => {
     }
   }, []);
 
-  const clickToggle = () => {
-    // setIsAuthenticated(!isAuthenticated);
-  };
-
   return (
-    <div className='grid lg:grid-cols-5 lg:grid-row-10 gap-6'>
+    <div className='grid lg:grid-cols-7 lg:grid-row-10 gap-6'>
       <div className='panel lg:col-span-3'>
         {accountData.map((data, index) => (
           <div className='space-y-5 p-5'>
@@ -89,16 +85,15 @@ const Policy = (accessResource: any) => {
                 <input type='text' className='grow pl-4 font-light' value={data['accountRequestWho']} />
               </label>
             </div>
-            <div className='grid lg:grid-cols-2 gap-4'>
-              <label className='input input-bordered flex items-center gap-2'>
-                유효시한
-                <input type='text' className='grow pl-4 font-light' value={data['accountRenewalDue']} />
-              </label>
-              <label className='input input-bordered flex items-center gap-2'>
-                잔여 유효일
-                <input type='text' className='grow pl-4 font-light' value={data['accountRenewalDate']} />
-              </label>
-            </div>
+            <label className='input input-bordered flex items-center gap-2'>
+              유효시한
+              <input type='text' className='grow pl-4 font-light' value={data['accountRenewalDue']} />
+            </label>
+            <label className='input input-bordered flex items-center gap-2'>
+              잔여 유효일
+              <input type='text' className='grow pl-4 font-light' value={data['accountRenewalDate']} />
+            </label>
+
             <label className='input input-bordered flex items-center gap-2'>
               Credential URI
               <input type='text' className='grow pl-4 font-light' value={data['accountCredentialsUri']} />
@@ -162,47 +157,6 @@ const Policy = (accessResource: any) => {
         </table>
       </div>
 
-      <div className='panel lg:col-span-3 lg:row-span-1 space-y-5'>
-        <div className='flex p-5'>
-          {/* <label className='input flex flex-col gap-2'>
-            <p>유효시한</p>
-            <input type='text' className='grow' placeholder='06/08/2021' disabled />
-          </label>
-          <label className='input flex flex-col gap-2'>
-            <p>잔여 유효일</p>
-            <input type='text' className='grow' placeholder='454' disabled />
-          </label>
-          <label className='input flex flex-col gap-2'>
-            <p>접근제어 서버</p>
-            <input type='text' className='grow' placeholder='AWS-DBAccessManager' disabled />
-          </label> */}
-        </div>
-        <div className='flex justify-start'>
-          <div className='flex flex-col pl-8'>
-            <p className='font-semibold mb-2'>Source IP</p>
-            <div className='join'>
-              <select className='select w-40 max-w-xs join-item' disabled>
-                <option>All</option>
-              </select>
-              <div className='indicator'>
-                <button className='btn join-item bg-blue-300 border-none text-white'>Add</button>
-              </div>
-            </div>
-            <div className='badge badge-neutral ml-2 mt-4'>All </div>
-          </div>
-          <div className='pl-4'>
-            <label className='flex flex-col pl-12 gap-6'>
-              <p>명령어 제한 방식</p>
-              <div className='flex gap-4'>
-                <input type='radio' name='radio-1' className='radio' checked={false} />
-                <p className='text-sm'> White List</p>
-                <input type='radio' name='radio-1' className='radio' checked={true} />
-                <p>Black List</p>
-              </div>
-            </label>
-          </div>
-        </div>
-      </div>
       <div className='panel lg:col-span-2'>
         <h2 className='font-semibold mb-5'>Notes</h2>
         <div className='overflow-x-auto'>
@@ -285,7 +239,7 @@ const Policy = (accessResource: any) => {
         </div>
       </div> */}
 
-      <div className='panel lg:col-span-5 lg:row-span-3'>
+      <div className='panel lg:col-span-7 lg:row-span-3'>
         <div className='flex place-content-between'>
           <button className='btn mb-4 shadow-none btn-error text-white'>
             <IconTrash />

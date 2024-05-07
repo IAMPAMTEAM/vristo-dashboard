@@ -2,23 +2,37 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const Compliance = () => {
-  // TODO: Report API 연결
-
-  // TODO: DOM으로 Report 업데이트
-  const [reportHTML, setReportHTML] = useState();
+  const [reportHTML, setReportHTML] = useState('');
+  useEffect(() => {
+    fetch('https://sy-workflow-demodata.s3.us-west-2.amazonaws.com/compliance.txt')
+      .then(async (response) => await response.text())
+      .then((data) => setReportHTML(data));
+  });
 
   axios.defaults.withCredentials = true;
   useEffect(() => {
-    axios.get('http://13.209.176.171:9040/create?account=mz_vincent').then((result) => {
-      console.log('result');
-      console.log(result);
+    const tabs = document.querySelectorAll('.tab');
+    const reports = document.querySelectorAll('.h-report');
+
+    tabs.forEach((tab, index: number) => {
+      tab.addEventListener('click', () => {
+        tabs.forEach((t) => t.classList.remove('tab-active'));
+        tab.classList.add('tab-active');
+
+        reports.forEach((t) => t.classList.add('hidden'));
+        reports[index]?.classList.remove('hidden');
+      });
     });
   });
 
   return (
     <div>
       <div className='grid'>
-        <div className='panel'></div>
+        <div className='panel'>
+          <p className='font-semibold text-xl pl-4'>Compliance</p>
+          <hr className='mt-4' />
+          <div dangerouslySetInnerHTML={{ __html: reportHTML }}></div>
+        </div>
       </div>
     </div>
   );

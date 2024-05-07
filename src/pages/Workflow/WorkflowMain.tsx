@@ -1,5 +1,5 @@
 import OnclickGetRowDataTable from '@/components/DataTables/OnclickGetRowDataTable';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Account from '@/components/Approval/Account';
 import Policy from '@/components/Approval/Policy';
 
@@ -32,12 +32,25 @@ const WorkflowMain = () => {
     formAccountUri: '',
     formAccessResourcesUri: '',
   });
+  const [formType, setFormType] = useState('');
+
+  // const [onclickRowData, setOnclickRowData] = useState('');
+
+  // const getOnclickRowData = useCallback((d) => {
+  //   setRowData(d);
+  // }, []);
+
+  // const getOnclickRowData = (d) => {
+  //   console.log(d);
+  //   // console.log('rowdata', rowData);
+  // };
 
   useEffect(() => {
-    // TODO: s3 update
     fetch('https://sy-workflow-demodata.s3.us-west-2.amazonaws.com/workflow-origin.json')
       .then((result) => result.json())
       .then((data) => setTableData(data));
+
+    setFormType(rowData['formType']);
   }, []);
 
   return (
@@ -45,16 +58,17 @@ const WorkflowMain = () => {
       <div className='grid gap-6'>
         <div className='panel'>
           <OnclickGetRowDataTable
+            tableData={tableData}
+            tableOption={{}}
             getOnclickRowData={(d) => {
               setRowData(d);
             }}
-            tableData={tableData}
-            tableOption={{}}
           />
         </div>
       </div>
       <div className='pt-6'>
-        {rowData['formCategory'] === null ? '' : rowData['formCategory'] === 'account' ? <Account /> : rowData['formCategory'] === 'access' ? <Policy accessResource={rowData} /> : ''}
+        <p>{rowData['formType']}</p>
+        {rowData['formCategory'] === null ? <div></div> : rowData['formCategory'] === 'account' ? <Account /> : rowData['formCategory'] === 'access' ? <Policy formType={rowData['formType']} /> : ''}
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ import IconGoogle from '@/components/Icon/IconGoogle';
 const EntryLogin = (props: any) => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(setPageTitle('Login Boxed'));
+    dispatch(setPageTitle(''));
   });
   const navigate = useNavigate();
 
