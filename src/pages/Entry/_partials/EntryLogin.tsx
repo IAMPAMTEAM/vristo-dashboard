@@ -1,21 +1,12 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
-import { setPageTitle, toggleRTL } from '@/store/themeConfigSlice';
+import { useState } from 'react';
 import { login } from '@/store/auth';
 import IconMail from '@/components/Icon/IconMail';
 import IconLockDots from '@/components/Icon/IconLockDots';
-import IconInstagram from '@/components/Icon/IconInstagram';
-import IconFacebookCircle from '@/components/Icon/IconFacebookCircle';
-import IconTwitter from '@/components/Icon/IconTwitter';
-import IconGoogle from '@/components/Icon/IconGoogle';
 
 const EntryLogin = (props: any) => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    // dispatch(setPageTitle(''));
-  });
-  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
