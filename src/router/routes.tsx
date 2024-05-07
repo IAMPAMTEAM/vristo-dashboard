@@ -23,6 +23,9 @@ const AssetsDBAWSRDS = lazy(() => import('@/pages/Assets/DBAWSRDS'));
 const AssetsDBOnpremise = lazy(() => import('@/pages/Assets/DBOnpremise'));
 
 const PolicyPortal = lazy(() => import('@/pages/Policy/Portal'));
+const PolicyDevops = lazy(() => import('@/pages/Policy/PolicyDevops'));
+const PolicyApp = lazy(() => import('@/pages/Policy/PolicyApp'));
+const PolicySaaS = lazy(() => import('@/pages/Policy/PolicySaaS'));
 
 const Compliance = lazy(() => import('@/pages/Compliance'));
 
@@ -148,6 +151,21 @@ const routes = [
     path: '/policy/portal',
     layout: 'default',
     element: <PolicyPortal />,
+  },
+  {
+    path: '/policy/dev-ops',
+    layout: 'default',
+    element: <PolicyDevops />,
+  },
+  {
+    path: '/policy/app',
+    layout: 'default',
+    element: <PolicyApp />,
+  },
+  {
+    path: '/policy/saas',
+    layout: 'default',
+    element: <PolicySaaS />,
   },
   {
     path: '/compliance',

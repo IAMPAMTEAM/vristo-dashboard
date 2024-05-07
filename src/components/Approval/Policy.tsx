@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import DefaultDataTable from '../DataTables/DefaultDataTable';
+import DefaultDataTable from '../DataTables/DefaultDataTableFitWidth';
 import IconTrash from '../Icon/IconTrash';
 import IconPlus from '../Icon/IconPlus';
 import IconRefresh from '../Icon/IconRefresh';

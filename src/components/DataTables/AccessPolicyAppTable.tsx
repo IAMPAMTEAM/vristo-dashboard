@@ -15,7 +15,7 @@ import {
   SizeColumnsToFitProvidedWidthStrategy,
 } from 'ag-grid-community';
 
-export default function AccessPolicyDevopsTable() {
+export default function AccessPolicyAppTable() {
   const defaultTableConfig = {
     tableHeight: 535,
     pagination: true,
@@ -29,50 +29,23 @@ export default function AccessPolicyDevopsTable() {
     },
     {
       headerName: 'Infra Policy',
-      children: [
-        { field: 'AWS', maxWidth: 70 },
-        { field: 'IDC', maxWidth: 60 },
-        { field: 'Hybrid', maxWidth: 80 },
-      ],
+      children: [{ field: 'AWS' }, { field: 'IDC' }, { field: 'Hybrid' }],
     },
     {
       field: 'PasswordPolicy',
     },
     {
-      headerName: 'Portal Policy',
+      headerName: 'App Policy',
       children: [
-        { headerName: 'Mgmt', field: 'Management' },
-        { field: 'Diag' },
-        { headerName: 'Monitor', field: 'Monitoring' },
-        { field: 'Audit' },
-        { field: 'Approval' },
-        { field: 'Admin' },
-        { field: 'Debug' },
-      ],
-    },
-    {
-      headerName: 'Access Privilage',
-      children: [
-        { field: 'Server' },
-        { field: 'DB' },
-        { field: 'VPN' },
-        { field: 'Network' },
-        { headerName: 'AWS-IAM', field: 'AWSIAM' },
-        { headerName: 'AWS EC2 Key', field: 'AWSEC2Key' },
-        { headerName: 'AWS IAM/S3 Key', field: 'AWSIAMS3Key' },
-        { headerName: 'LotteDFS SVN', field: 'LotteDFSSVN' },
-        { headerName: 'LotteDFS VDI', field: 'LotteDFSVDI' },
-        { headerName: 'LotteDFS JIRA', field: 'LotteDFSJIRA' },
+        { headerName: 'Jira', field: 'AppJira' },
+        { headerName: 'ERP', field: 'AppERP' },
+        { headerName: 'Jenkins', field: 'AppJenkins' },
+        { headerName: 'Git', field: 'AppGit' },
       ],
     },
     {
       headerName: 'OTP Policy',
-      children: [
-        { field: 'OTPServer', maxWidth: 110 },
-        { field: 'OTPDB', maxWidth: 90 },
-        { field: 'OTPVPN', maxWidth: 110 },
-        { field: 'OTPPortal', maxWidth: 110 },
-      ],
+      children: [{ headerName: 'Git', field: 'OTPGit' }],
     },
   ]);
 
@@ -83,7 +56,7 @@ export default function AccessPolicyDevopsTable() {
   }, []);
 
   const onGridReady = useCallback((params: GridReadyEvent) => {
-    fetch('https://lhh-iampam-demodata.s3.ap-northeast-2.amazonaws.com/accesspolicy-devops.json')
+    fetch('https://lhh-iampam-demodata.s3.ap-northeast-2.amazonaws.com/accesspolicy-app.json')
       .then((resp) => resp.json())
       .then((data) => setRowData(data));
   }, []);

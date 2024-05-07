@@ -48,7 +48,6 @@
         "ag-grid-community": "^31.2.1",
         "ag-grid-react": "^31.2.1",
         "autoprefixer": "^10.4.17",
-        "axios": "^1.6.8",
         "daisyui": "^4.10.2",
         "i18next": "^21.10.0",
         "i18next-browser-languagedetector": "^6.1.8",

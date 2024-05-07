@@ -1,23 +1,23 @@
-import AccessPolicyDevopsTable from '@/components/DataTables/AccessPolicyDevopsTable';
+import AccessPolicySaaSTable from '@/components/DataTables/AccessPolicySaaSTable';
 import { MultipleRadarChart } from '@/components/Charts/_partials/MultipleRadarChart';
 
-const PolicyDevops = () => {
+const PolicySaaS = () => {
   return (
     <div>
       <div className='grid gap-6'>
         <div className='panel'>
-          <AccessPolicyDevopsTable />
+          <AccessPolicySaaSTable />
         </div>
         <div className='grid lg:grid-cols-2 gap-6'>
           <div className='panel lg:col-span-1'>
             <MultipleRadarChart
               data={[
-                [280, 175, 390, 154, 140, 245, 390, 154],
-                [410, 165, 305, 164, 245, 245, 305, 164],
+                [380, 375, 390, 254],
+                [410, 465, 105, 104],
               ]}
               title='Allowed Users Compare - Radar Chart'
-              categories={['Mgmt', 'Diag', 'Monitor', 'Audit', 'Approval', 'Admin', 'Debug', 'OTPPortal']}
-              colors={['#7B66FF', '#5FBDFF']}
+              categories={['Slack', 'Notion', 'BitBucket', 'Office365']}
+              colors={['#FF76CE', '#FDFFC2']}
             />
           </div>
           <div className='panel lg:col-span-1'>
@@ -28,7 +28,7 @@ const PolicyDevops = () => {
               ]}
               title='Allowed Users Compare - Radar Chart'
               categories={['InfraAWS', 'InfraIDC', 'InfraHybrid']}
-              colors={['#8294C4', '#ACB1D6']}
+              colors={['#5E1675', '#EE4266']}
             />
           </div>
         </div>
@@ -37,4 +37,4 @@ const PolicyDevops = () => {
   );
 };
 
-export default PolicyDevops;
+export default PolicySaaS;

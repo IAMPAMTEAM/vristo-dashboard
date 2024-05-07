@@ -1,14 +1,12 @@
-import DefaultDataTable from '@/components/DataTables/DefaultDataTable';
 import { MultipleRadarChart } from '@/components/Charts/_partials/MultipleRadarChart';
-import AccessPolicyDevopsTable from '@/components/DataTables/AccessPolicyDevopsTable';
+import AccessPolicyPortalTable from '@/components/DataTables/AccessPolicyPortalTable';
 
 const Portal = () => {
   return (
     <div>
       <div className='grid gap-6'>
         <div className='panel'>
-          {/* <DefaultDataTable tableData={undefined} tableOption={{}} /> */}
-          <AccessPolicyDevopsTable />
+          <AccessPolicyPortalTable />
         </div>
         <div className='grid lg:grid-cols-2 gap-6'>
           <div className='panel lg:col-span-1'>

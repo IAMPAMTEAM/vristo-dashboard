@@ -1,4 +1,4 @@
-import DefaultDataTable from '@/components/DataTables/DefaultDataTable';
+import DefaultDataTable from '@/components/DataTables/DefaultDataTableFitWidth';
 import { useEffect, useState } from 'react';
 
 const ServerOnpremise = () => {

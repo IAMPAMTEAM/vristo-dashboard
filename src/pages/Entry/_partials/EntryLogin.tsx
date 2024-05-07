@@ -1,8 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { IRootState } from '@/store';
 import { useEffect, useState } from 'react';
 import { setPageTitle, toggleRTL } from '@/store/themeConfigSlice';
+import { login } from '@/store/auth';
 import IconMail from '@/components/Icon/IconMail';
 import IconLockDots from '@/components/Icon/IconLockDots';
 import IconInstagram from '@/components/Icon/IconInstagram';
@@ -13,13 +13,18 @@ import IconGoogle from '@/components/Icon/IconGoogle';
 const EntryLogin = (props: any) => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(setPageTitle(''));
+    // dispatch(setPageTitle(''));
   });
   const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const user = useSelector((state: any) => state['userReducer']['value']);
 
   // const [isLogin, setIsLogin] = useState<boolean>(false);
 
   const submitForm = () => {
+    dispatch(login({ email: email, password: password }));
     props.setLoginStatus(true);
   };
 
@@ -33,18 +38,18 @@ const EntryLogin = (props: any) => {
           </div>
           <form className='space-y-5 dark:text-white' onSubmit={submitForm}>
             <div>
-              <label htmlFor='Email'>Email</label>
+              {/* <label htmlFor='Email'>{email}</label> */}
               <div className='relative text-white-dark'>
-                <input id='Email' type='email' placeholder='Enter Email' className='form-input ps-10 placeholder:text-white-dark' />
+                <input id='Email' type='email' placeholder='Enter Email' className='form-input ps-10 placeholder:text-white-dark' onChange={(e) => setEmail(e.target.value)} />
                 <span className='absolute start-4 top-1/2 -translate-y-1/2'>
                   <IconMail fill={true} />
                 </span>
               </div>
             </div>
             <div>
-              <label htmlFor='Password'>Password</label>
+              {/* <label htmlFor='Password'>{password}</label> */}
               <div className='relative text-white-dark'>
-                <input id='Password' type='password' placeholder='Enter Password' className='form-input ps-10 placeholder:text-white-dark' />
+                <input id='Password' type='password' placeholder='Enter Password' className='form-input ps-10 placeholder:text-white-dark' onChange={(e) => setPassword(e.target.value)} />
                 <span className='absolute start-4 top-1/2 -translate-y-1/2'>
                   <IconLockDots fill={true} />
                 </span>

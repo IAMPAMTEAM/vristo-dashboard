@@ -2,12 +2,16 @@ import { SingleFlowChart } from '@/components/Charts/_partials/SingleFlowChart';
 import { MultipleRadarChart } from '@/components/Charts/_partials/MultipleRadarChart';
 import { UpdatingPieChart } from '@/components/Charts/_partials/UpdatingPieChart';
 import { VerticalBarChart } from '@/components/Charts/_partials/VerticalBarChart';
-import DefaultDataTable from '@/components/DataTables/DefaultDataTable';
+import DefaultDataTable from '@/components/DataTables/DefaultDataTableFitWidth';
 import { useState, useEffect } from 'react';
 import AccordionTabletest from '@/components/DataTables/AccordionTabletest';
 import AccordionTable from '@/components/DataTables/AccordionTable';
 import AccessPolicyDevopsTable from '@/components/DataTables/AccessPolicyDevopsTable';
 import OnclickGetRowDataTable from '@/components/DataTables/OnclickGetRowDataTable';
+import DefaultDataTableFitWidth from '@/components/DataTables/DefaultDataTableFitWidth';
+import AccessPolicyAppTable from '@/components/DataTables/AccessPolicyAppTable';
+import AccessPolicySaaSTable from '@/components/DataTables/AccessPolicySaaSTable';
+import AccessPolicyPortalTable from '@/components/DataTables/AccessPolicyPortalTable';
 
 function UserTest() {
   const [tableData, settableData] = useState([]);
@@ -33,11 +37,14 @@ function UserTest() {
       <div className='grid gap-6'>
         <div className='grid lg:grid-cols-1 gap-6'>
           <div className='panel'>
-            <DefaultDataTable tableData={tableData} tableOption={tableOption} />
-            <OnclickGetRowDataTable getOnclickRowData={onclickRowData} tableData={tableData} tableOption={tableOption} />
+            {/* <DefaultDataTableFitWidth tableData={tableData} tableOption={tableOption} /> */}
+            {/* <OnclickGetRowDataTable getOnclickRowData={getOnclickRowData} tableData={tableData} tableOption={tableOption} /> */}
             {/* <AccordionTabletest tableData={tableData} detailTableCol="Direction" tableOption={tableOption} /> */}
             {/* <AccordionTable /> */}
-            {/* <AccessPolicyDevopsTable /> */}
+            <AccessPolicyDevopsTable />
+            <AccessPolicyAppTable />
+            <AccessPolicySaaSTable />
+            <AccessPolicyPortalTable />
           </div>
         </div>
         <div className='grid lg:grid-cols-5 gap-6'>
@@ -63,6 +70,44 @@ function UserTest() {
               <div className='stat-value text-primary'>3.1K</div>
               <div className='stat-desc'>3% more than last week</div>
             </div>
+    return (
+        <div>
+            <div className="grid gap-6">
+                <div className="grid lg:grid-cols-1 gap-6">
+                    <div className="panel">
+                        {/* <DefaultDataTableFitWidth tableData={tableData} tableOption={tableOption} /> */}
+                        {/* <OnclickGetRowDataTable getOnclickRowData={getOnclickRowData} tableData={tableData} tableOption={tableOption} /> */}
+                        {/* <AccordionTabletest tableData={tableData} detailTableCol="Direction" tableOption={tableOption} /> */}
+                        {/* <AccordionTable /> */}
+                        <AccessPolicyDevopsTable />
+                        <AccessPolicyAppTable />
+                        <AccessPolicySaaSTable />
+                        <AccessPolicyPortalTable />
+                    </div>
+                </div>
+                <div className="grid lg:grid-cols-5 gap-6">
+                    <div className="panel lg:col-span-2">
+                        <MultipleRadarChart />
+                    </div>
+                    <div className="panel lg:col-span-2">
+                        <UpdatingPieChart />
+                    </div>
+                    <div className="panel lg:col-span-1 stats stats-vertical shadow">
+                        <div className="stat">
+                            <div className="stat-figure text-primary">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current">
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                                    ></path>
+                                </svg>
+                            </div>
+                            <div className="stat-title">This Week</div>
+                            <div className="stat-value text-primary">3.1K</div>
+                            <div className="stat-desc">3% more than last week</div>
+                        </div>
 
             <div className='stat'>
               <div className='stat-figure text-secondary'>

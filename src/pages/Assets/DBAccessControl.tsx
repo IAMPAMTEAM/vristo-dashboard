@@ -1,6 +1,6 @@
 import { StackedVerticalBarChart } from '@/components/Charts/_partials/StackedVerticalBarChart';
 import { UpdatingPieChart } from '@/components/Charts/_partials/UpdatingPieChart';
-import DefaultDataTable from '@/components/DataTables/DefaultDataTable';
+import DefaultDataTable from '@/components/DataTables/DefaultDataTableFitWidth';
 import { useEffect, useState } from 'react';
 
 const DBAccessControl = () => {

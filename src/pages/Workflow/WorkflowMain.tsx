@@ -67,7 +67,7 @@ const WorkflowMain = () => {
         </div>
       </div>
       <div className='pt-6'>
-        <p>{rowData['formType']}</p>
+        {/* <p>{rowData['formType']}</p> */}
         {rowData['formCategory'] === null ? <div></div> : rowData['formCategory'] === 'account' ? <Account /> : rowData['formCategory'] === 'access' ? <Policy formType={rowData['formType']} /> : ''}
       </div>
     </div>

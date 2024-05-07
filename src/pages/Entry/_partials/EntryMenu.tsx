@@ -1,10 +1,12 @@
 import IconLogout from '@/components/Icon/IconLogout';
 import { useNavigate } from 'react-router-dom';
+import IconUsers from '@/assets/icons/group.png';
 import IconAssets from '@/assets/icons/IconAssets.svg';
 import IconIAMPolicy from '@/assets/icons/IconIAMPolicy.svg';
 import IconIAMMonitor from '@/assets/icons/IconIAMMonitor.svg';
 import IconIAMAudit from '@/assets/icons/IconIAMAudit.svg';
 import IconCompliance from '@/assets/icons/IconCompliance.svg';
+import IconAdmin from '@/assets/icons/user.png';
 import LogoZeroTrust from '@/assets/icons/LogoZeroTrust.svg';
 import a from '@/assets/icons/a.svg';
 import b from '@/assets/icons/b.svg';
@@ -12,7 +14,7 @@ import b from '@/assets/icons/b.svg';
 const EntryMenu = () => {
   const menuList = [
     {
-      logo: IconAssets,
+      logo: IconUsers,
       menu: 'IAM Users',
       path: '/users/hr',
     },
@@ -42,7 +44,7 @@ const EntryMenu = () => {
       path: '/compliance',
     },
     {
-      logo: IconAssets,
+      logo: IconAdmin,
       menu: 'Admin',
       path: '/admin',
     },
