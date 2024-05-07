@@ -29,14 +29,26 @@ export default function AccessPolicyPortalTable() {
         },
         {
             headerName: 'Infra Policy',
-            children: [{ field: 'AWS' }, { field: 'IDC' }, { field: 'Hybrid' }],
+            children: [
+                { field: 'AWS', maxWidth: 70 },
+                { field: 'IDC', maxWidth: 60 },
+                { field: 'Hybrid', maxWidth: 80 },
+            ],
         },
         {
             field: 'PasswordPolicy',
         },
         {
             headerName: 'Portal Policy',
-            children: [{ field: 'Mgmt' }, { field: 'Diag' }, { field: 'Monitor' }, { field: 'Audit' }, { field: 'Approval' }, { field: 'Admin' }, { field: 'Debug' }],
+            children: [
+                { field: 'Mgmt', maxWidth: 80 },
+                { field: 'Diag', maxWidth: 70 },
+                { field: 'Monitor', maxWidth: 90 },
+                { field: 'Audit', maxWidth: 70 },
+                { field: 'Approval', maxWidth: 100 },
+                { field: 'Admin', maxWidth: 80 },
+                { field: 'Debug', maxWidth: 80 },
+            ],
         },
         {
             headerName: 'OTP Policy',

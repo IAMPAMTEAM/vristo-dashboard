@@ -51,7 +51,17 @@ export default function AccessPolicyAppTable() {
 
     const autoSizeStrategy = useMemo<SizeColumnsToFitGridStrategy | SizeColumnsToFitProvidedWidthStrategy | SizeColumnsToContentStrategy>(() => {
         return {
-            type: 'fitCellContents',
+            type: 'fitGridWidth',
+            columnLimits: [
+                {
+                    colId: 'PolicyName',
+                    minWidth: 270,
+                },
+                {
+                    colId: 'PasswordPolicy',
+                    minWidth: 310,
+                },
+            ],
         };
     }, []);
 

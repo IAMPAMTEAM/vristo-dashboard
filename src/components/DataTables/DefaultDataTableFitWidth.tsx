@@ -27,11 +27,14 @@ export default function DefaultDataTable({ tableData, tableOption }) {
             setRowData(tableData);
         }
         setTableConfig({ ...defaultTableConfig, ...tableOption });
-        return () => {
-            if (gridRef.current && gridRef.current.api) {
-                gridRef.current.api.sizeColumnsToFit({ defaultMinWidth: 100 });
-            }
-        };
+
+        if (gridRef.current && gridRef.current.api) {
+            setTimeout(() => {
+                const currentGridRef = gridRef.current as AgGridReact<HTMLElement>;
+
+                currentGridRef.api.sizeColumnsToFit({ defaultMinWidth: 150 });
+            });
+        }
     }, [tableData, tableOption]);
 
     const defaultColDef = useMemo(
