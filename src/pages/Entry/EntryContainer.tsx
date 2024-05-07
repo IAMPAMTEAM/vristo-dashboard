@@ -10,7 +10,7 @@ const EntryContainer = () => {
   return (
     <div>
       <div className='absolute inset-0 bg-gradient-to-r from-[#6667AB] to-[#ED8C00]'>{/* <img src="/assets/images/auth/bg-gradient.png" alt="image" className="h-full w-full object-fill" /> */}</div>
-      <div className='absolute p-4 text-3xl font-bold font-mono'>
+      <div className='absolute p-2 text-2xl font-bold mb-4'>
         {/* logo */}
         IAMPAM
       </div>

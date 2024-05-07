@@ -48,7 +48,7 @@ export default function OnclickGetRowDataTable({ getOnclickRowData, tableData, t
   }, []);
 
   return (
-    <div className='ag-theme-alpine' style={{ height: tableConfig.tableHeight }}>
+    <div className='ag-theme-quartz' style={{ height: tableConfig.tableHeight }}>
       <AgGridReact
         ref={gridRef}
         rowData={rowData}

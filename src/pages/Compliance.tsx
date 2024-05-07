@@ -31,7 +31,7 @@ const Compliance = () => {
         <div className='panel'>
           <p className='font-semibold text-xl pl-4'>Compliance</p>
           <hr className='mt-4' />
-          <div dangerouslySetInnerHTML={{ __html: reportHTML }}></div>
+          <div className='panel mt-4' dangerouslySetInnerHTML={{ __html: reportHTML }}></div>
         </div>
       </div>
     </div>

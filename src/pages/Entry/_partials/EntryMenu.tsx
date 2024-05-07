@@ -7,9 +7,10 @@ import IconIAMMonitor from '@/assets/icons/IconIAMMonitor.svg';
 import IconIAMAudit from '@/assets/icons/IconIAMAudit.svg';
 import IconCompliance from '@/assets/icons/IconCompliance.svg';
 import IconAdmin from '@/assets/icons/user.png';
+import IconMenuDashboard from '@/components/Icon/Menu/IconMenuDashboard';
 import LogoZeroTrust from '@/assets/icons/LogoZeroTrust.svg';
-import a from '@/assets/icons/a.svg';
-import b from '@/assets/icons/b.svg';
+import { login } from '@/store/auth';
+import { useDispatch } from 'react-redux';
 
 const EntryMenu = () => {
   const menuList = [
@@ -50,6 +51,8 @@ const EntryMenu = () => {
     },
   ];
 
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
   const navigateMenu = (path: string) => navigate(path);
@@ -58,22 +61,36 @@ const EntryMenu = () => {
     <div className='relative  panel flex flex-col gap-16 h-full w-full bg-[#F6F5F2] rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100 p-12 border-none'>
       <div className='flex gap-8 justify-center items-center relative'>
         <img className='w-16 p-2 bg-[#6667AB] rounded-xl' src={LogoZeroTrust} alt='' />
-        <p className='text-6xl font-semibold font-mono tracking-tighter'>ZeroTrust Portal</p>
+        <p className='text-6xl font-semibold tracking-tighter'>ZeroTrust Portal</p>
       </div>
 
       <div className='flex gap-16 p-8 items-center justify-center'>
         {menuList.map((menu, idx) => (
           <button className='lg:col-span-1 flex flex-col items-center rounded hover:text-[#FEFAF6] hover:cursor-pointer p-8' onClick={() => navigateMenu(menu['path'])}>
             <img className='w-12' src={menu['logo']} alt={menu['menu']} />
-            <p className='font-extrabold text-xl tracking-tighter mt-8'>{menu['menu']}</p>
+            <p className='font-bold text-xl tracking-tighter mt-8'>{menu['menu']}</p>
           </button>
         ))}
       </div>
 
-      <div className=''>
-        <button className='btn bg-[#6667AB] border-none w-full'>
+      <div className='flex flex-col items-center'>
+        <button
+          className='btn bg-[#ED8C00] border-none w-full mb-8 shadow-none'
+          onClick={() => {
+            navigate('/dashboard-overview');
+          }}
+        >
+          <IconMenuDashboard className='text-[#fff]' />
+          <p className='font-bold text-[#fff] tracking-tight text-lg ml-2 shadow-none'>Dashboard Overview</p>
+        </button>
+        <button
+          className='btn bg-[#6667AB] border-none w-full shadow-none'
+          onClick={() => {
+            dispatch(login({ email: '', password: '' }));
+          }}
+        >
           <IconLogout className='text-[#fff]' />
-          <p className='font-bold font-mono text-[#FFF] tracking-tight text-lg ml-2 shadow-none'>LOGOUT</p>
+          <p className='font-bold text-[#FFF] tracking-tight text-lg ml-2 shadow-none'>LOGOUT</p>
         </button>
       </div>
 

@@ -97,6 +97,15 @@ const Sidebar = () => {
           <PerfectScrollbar className='h-[calc(100vh-80px)] relative'>
             <ul className='relative font-semibold space-y-0.5 p-4 py-0'>
               <li className='menu nav-item'>
+                <NavLink to='/dashboard-overview' className='group'>
+                  <div className='flex items-center'>
+                    <IconMenuDragAndDrop className='group-hover:!text-primary shrink-0' />
+                    <span className='ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark'>{t('dashboardOverview')}</span>
+                  </div>
+                </NavLink>
+              </li>
+
+              <li className='menu nav-item'>
                 <button type='button' className={`${currentMenu === 'iamUsers' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('iamUsers')}>
                   <div className='flex items-center'>
                     <IconMenuDashboard className='group-hover:!text-primary shrink-0' />
