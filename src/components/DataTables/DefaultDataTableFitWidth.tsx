@@ -5,6 +5,7 @@ import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 import '@/assets/css/dataTalbeStyle.css';
 
+// @ts-ignore
 export default function DefaultDataTable({ tableData, tableOption }) {
   const defaultTableConfig = {
     tableHeight: 535,
