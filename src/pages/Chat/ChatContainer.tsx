@@ -49,6 +49,7 @@ const Chat = () => {
       return;
     }
 
+    // @ts-ignore
     setMessage1((prev) => [
       ...prev,
       {
@@ -89,6 +90,7 @@ const Chat = () => {
   };
   const sendMessage = async () => {
     if (textMessage.trim()) {
+      // @ts-ignore
       setMessage1((prev) => {
         return [
           ...prev,
