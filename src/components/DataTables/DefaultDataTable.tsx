@@ -60,6 +60,7 @@ export default function DefaultDataTable({ tableData, tableOption }) {
           } else if (key === 'employeeState' || key === 'hrState') {
             return {
               field: key,
+              // @ts-ignore
               cellStyle: (params) => {
                 if (params.value === 'Retired' || params.value === 'Resigned' || params.value === 'Expired' || params.value === 'Inactive') {
                   return { color: '#C22626' };
@@ -87,6 +88,7 @@ export default function DefaultDataTable({ tableData, tableOption }) {
             return {
               field: key,
               headerClass: 'grouping-header',
+              // @ts-ignore
               cellStyle: (params) => {
                 if (params.value === 'Allowed') {
                   return { color: '#47996B' };

@@ -1,27 +1,26 @@
 import axios from 'axios';
 
-const API_URL = 'https://prqc0yptq6.execute-api.us-east-1.amazonaws.com/demo/bedrock';
+const API_URL = 'https://t734ag33bzq7marwc5spfjtgwi0zdoqz.lambda-url.us-east-1.on.aws?';
 const instance = axios.create({
   baseURL: API_URL,
 });
 instance.defaults.headers.post['Content-Type'] = 'application/json';
 
 export const initialSendApi = async (input: string) => {
-  await axios(API_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Credentials': true,
+  console.log(input);
+  return await axios(API_URL, {
+    method: 'GET',
+    params: {
+      text: input,
     },
-    withCredentials: true,
-  })
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.error(`error = `, error);
-    });
+  });
+  // .then((response) => {
+  //   console
+  //   return response;
+  // })
+  // .catch((error) => {
+  //   console.error(`error = `, error);
+  // });
   // await instance
   //   .post(
   //     '',
@@ -50,7 +49,7 @@ export const resendApi = (input: string, sessionId: string) => {
         sessionId,
       },
       {
-        // withCredentials: false
+        // withCredentials: true
       }
     )
     .then((response) => {
