@@ -50,7 +50,9 @@ const WorkflowMain = () => {
       .then((result) => result.json())
       .then((data) => setTableData(data));
 
-    setFormType(rowData['formType']);
+    // console.log(rowData);
+
+    // setFormType(rowData['formType']);
   }, []);
 
   return (
@@ -60,7 +62,8 @@ const WorkflowMain = () => {
           <OnclickGetRowDataTable
             tableData={tableData}
             tableOption={{}}
-            getOnclickRowData={(d) => {
+            getOnclickRowData={(d: any) => {
+              setFormType(d['formType']);
               setRowData(d);
             }}
           />
@@ -68,7 +71,7 @@ const WorkflowMain = () => {
       </div>
       <div className='pt-6'>
         {/* <p>{rowData['formType']}</p> */}
-        {rowData['formCategory'] === null ? <div></div> : rowData['formCategory'] === 'account' ? <Account /> : rowData['formCategory'] === 'access' ? <Policy formType={rowData['formType']} /> : ''}
+        {rowData['formCategory'] === null ? <div></div> : rowData['formCategory'] === 'account' ? <Account /> : rowData['formCategory'] === 'access' ? <Policy formType={formType} /> : ''}
       </div>
     </div>
   );

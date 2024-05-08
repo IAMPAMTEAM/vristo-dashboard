@@ -5,6 +5,7 @@ import IconPlus from '../Icon/IconPlus';
 import IconRefresh from '../Icon/IconRefresh';
 
 const Policy = ({ formType }: any) => {
+  console.log(formType);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [processData, setProcessData] = useState([]);
   const [accountData, setAccountData] = useState([]);
@@ -74,29 +75,29 @@ const Policy = ({ formType }: any) => {
     <div className='grid lg:grid-cols-7 lg:grid-row-10 gap-6'>
       <div className='panel lg:col-span-3'>
         {accountData.map((data, index) => (
-          <div className='space-y-5 p-5'>
+          <div className='space-y-5 p-5' key={index}>
             <div className='grid lg:grid-cols-2 gap-4'>
               <label className='input input-bordered flex items-center gap-2'>
                 이름
-                <input type='text' className='grow pl-4 font-light' value={data['accoutUsername']} />
+                <input type='text' className='grow pl-4 font-light' readOnly value={data['accoutUsername']} />
               </label>
               <label className='input input-bordered flex items-center gap-2'>
                 아이디
-                <input type='text' className='grow pl-4 font-light' value={data['accountRequestWho']} />
+                <input type='text' className='grow pl-4 font-light' readOnly value={data['accountRequestWho']} />
               </label>
             </div>
             <label className='input input-bordered flex items-center gap-2'>
               유효시한
-              <input type='text' className='grow pl-4 font-light' value={data['accountRenewalDue']} />
+              <input type='text' className='grow pl-4 font-light' readOnly value={data['accountRenewalDue']} />
             </label>
             <label className='input input-bordered flex items-center gap-2'>
               잔여 유효일
-              <input type='text' className='grow pl-4 font-light' value={data['accountRenewalDate']} />
+              <input type='text' className='grow pl-4 font-light' readOnly value={data['accountRenewalDate']} />
             </label>
 
             <label className='input input-bordered flex items-center gap-2'>
               Credential URI
-              <input type='text' className='grow pl-4 font-light' value={data['accountCredentialsUri']} />
+              <input type='text' className='grow pl-4 font-light' readOnly value={data['accountCredentialsUri']} />
             </label>
           </div>
         ))}
@@ -137,8 +138,8 @@ const Policy = ({ formType }: any) => {
           </thead>
           <tbody className='font-light'>
             {processData.map((data, index) => (
-              <tr>
-                <th key={index}>
+              <tr key={index}>
+                <th>
                   {data['processType'] === 'agree' ? (
                     <div className='badge badge-info gap-2'>{data['processType']}</div>
                   ) : data['processType'] === 'approve' ? (

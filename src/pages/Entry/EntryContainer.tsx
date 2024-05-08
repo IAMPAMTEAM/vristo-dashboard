@@ -4,7 +4,6 @@ import EntryMenu from './_partials/EntryMenu';
 import { useSelector } from 'react-redux';
 
 const EntryContainer = () => {
-  const [loginStatus, setLoginStatus] = useState<boolean>(false);
   const user = useSelector((state: any) => state['userReducer']['value']);
 
   return (
@@ -15,7 +14,7 @@ const EntryContainer = () => {
         IAMPAM
       </div>
 
-      <div className='relative flex min-h-screen items-center justify-center  sm:px-16 pt-12'>{user.email && user.password ? <EntryMenu /> : <EntryLogin setLoginStatus={setLoginStatus} />}</div>
+      <div className='relative flex min-h-screen items-center justify-center  sm:px-16 pt-12'>{user.email && user.password ? <EntryMenu /> : <EntryLogin />}</div>
     </div>
   );
 };

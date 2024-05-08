@@ -5,18 +5,19 @@ import { login } from '@/store/auth';
 import IconMail from '@/components/Icon/IconMail';
 import IconLockDots from '@/components/Icon/IconLockDots';
 
-const EntryLogin = (props: any) => {
+const EntryLogin = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const user = useSelector((state: any) => state['userReducer']['value']);
 
-  // const [isLogin, setIsLogin] = useState<boolean>(false);
-
   const submitForm = () => {
-    dispatch(login({ email: email, password: password }));
-    props.setLoginStatus(true);
+    if (email === 'admin@iampam.io' && password === 'dkdldpavka1@#') {
+      dispatch(login({ email: email, password: password }));
+    } else {
+      alert('Wrong Email or Password');
+    }
   };
 
   return (

@@ -61,7 +61,7 @@ const UsersApp = () => {
 
   const treemapColors = ['#DFA67B'];
 
-  const sortByDescendingOrder = (categories, radarData) => {
+  const sortByDescendingOrder = (categories: any, radarData: any) => {
     return [...categories].sort((a, b) => {
       const valueA = radarData[categories.indexOf(a)];
       const valueB = radarData[categories.indexOf(b)];
@@ -100,7 +100,7 @@ const UsersApp = () => {
         <div className='grid lg:grid-cols-5 lg:grid-rows-2 gap-6'>
           <div className='panel lg:col-span-1 lg:row-span-1'>
             {/* TODO: label 추가 */}
-            <p>Last Week</p>
+            <p className='text-sm font-semibold mb-4'>Last Week</p>
             <div className='overflow-x-auto'>
               <table className='table'>
                 <thead>
@@ -126,7 +126,7 @@ const UsersApp = () => {
           </div>
           <div className='panel lg:col-span-1 lg:row-span-1'>
             {/* TODO: label 추가 */}
-            <p>This Week</p>
+            <p className='text-sm font-semibold mb-4'>This Week</p>
             <div className='overflow-x-auto'>
               <table className='table'>
                 <thead>

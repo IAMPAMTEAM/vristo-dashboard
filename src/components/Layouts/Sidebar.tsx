@@ -31,6 +31,12 @@ import IconMenuUsers from '../Icon/Menu/IconMenuUsers';
 import IconMenuPages from '../Icon/Menu/IconMenuPages';
 import IconMenuAuthentication from '../Icon/Menu/IconMenuAuthentication';
 import IconMenuDocumentation from '../Icon/Menu/IconMenuDocumentation';
+import IconUserPlus from '../Icon/IconUserPlus';
+import IconBox from '../Icon/IconBox';
+import IconBookmark from '../Icon/IconBookmark';
+import IconCloudDownload from '../Icon/IconCloudDownload';
+import IconLock from '../Icon/IconLock';
+import IconNotes from '../Icon/IconNotes';
 
 const Sidebar = () => {
   const [currentMenu, setCurrentMenu] = useState<string>('');
@@ -108,7 +114,8 @@ const Sidebar = () => {
               <li className='menu nav-item'>
                 <button type='button' className={`${currentMenu === 'iamUsers' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('iamUsers')}>
                   <div className='flex items-center'>
-                    <IconMenuDashboard className='group-hover:!text-primary shrink-0' />
+                    {/* <IconMenuDashboard className='group-hover:!text-primary shrink-0' /> */}
+                    <IconUserPlus className='group-hover:!text-primary shrink-0' />
                     <span className='ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark'>{t('iamUsers')}</span>
                   </div>
 
@@ -138,7 +145,7 @@ const Sidebar = () => {
               <li className='menu nav-item'>
                 <button type='button' className={`${currentMenu === 'iamAssets' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('iamAssets')}>
                   <div className='flex items-center'>
-                    <IconMenuDashboard className='group-hover:!text-primary shrink-0' />
+                    <IconBox className='group-hover:!text-primary shrink-0' />
                     <span className='ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark'>{t('iamAssets')}</span>
                   </div>
 
@@ -174,7 +181,7 @@ const Sidebar = () => {
               <li className='menu nav-item'>
                 <button type='button' className={`${currentMenu === 'iamPolicy' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('iamPolicy')}>
                   <div className='flex items-center'>
-                    <IconMenuDashboard className='group-hover:!text-primary shrink-0' />
+                    <IconMenuDocumentation className='group-hover:!text-primary shrink-0' />
                     <span className='ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark'>{t('iamPolicy')}</span>
                   </div>
 
@@ -204,7 +211,8 @@ const Sidebar = () => {
               <li className='menu nav-item'>
                 <button type='button' className={`${currentMenu === 'iamWorkflow' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('iamWorkflow')}>
                   <div className='flex items-center'>
-                    <IconMenuDashboard className='group-hover:!text-primary shrink-0' />
+                    {/* <IconMenuDashboard className='group-hover:!text-primary shrink-0' /> */}
+                    <IconBookmark className='group-hover:!text-primary shrink-0 ' />
                     <span className='ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark'>{t('iamWorkflow')}</span>
                   </div>
 
@@ -232,7 +240,7 @@ const Sidebar = () => {
                   }}
                 >
                   <div className='flex items-center'>
-                    <IconMenuDragAndDrop className={`group-hover:${isDisabled ? '!text-primary' : 'text-primary'} shrink-0`} />
+                    <IconCloudDownload className={`group-hover:${isDisabled ? '!text-primary' : 'text-primary'} shrink-0`} />
                     <span className={`ltr:pl-3 rtl:pr-3 ${isDisabled ? 'text-gray-400 dark:text-gray-600' : 'text-black dark:text-[#506690] dark:group-hover:text-white-dark'}`}>
                       {t('iamMonitor')}
                     </span>
@@ -250,7 +258,7 @@ const Sidebar = () => {
                   }}
                 >
                   <div className='flex items-center'>
-                    <IconMenuDragAndDrop className={`group-hover:${isDisabled ? '!text-primary' : 'text-primary'} shrink-0`} />
+                    <IconLock className={`group-hover:${isDisabled ? '!text-primary' : 'text-primary'} shrink-0`} />
                     <span className={`ltr:pl-3 rtl:pr-3 ${isDisabled ? 'text-gray-400 dark:text-gray-600' : 'text-black dark:text-[#506690] dark:group-hover:text-white-dark'}`}>{t('iamAudit')}</span>
                   </div>
                 </NavLink>
@@ -259,7 +267,7 @@ const Sidebar = () => {
               <li className='menu nav-item'>
                 <NavLink to='/compliance' className='group'>
                   <div className='flex items-center'>
-                    <IconMenuDragAndDrop className='group-hover:!text-primary shrink-0' />
+                    <IconNotes className='group-hover:!text-primary shrink-0' />
                     <span className='ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark'>{t('compliance')}</span>
                   </div>
                 </NavLink>
@@ -275,7 +283,7 @@ const Sidebar = () => {
                   }}
                 >
                   <div className='flex items-center'>
-                    <IconMenuDragAndDrop className={`group-hover:${isDisabled ? '!text-primary' : 'text-primary'} shrink-0`} />
+                    <IconUserPlus className={`group-hover:${isDisabled ? '!text-primary' : 'text-primary'} shrink-0`} />
                     <span className={`ltr:pl-3 rtl:pr-3 ${isDisabled ? 'text-gray-400 dark:text-gray-600' : 'text-black dark:text-[#506690] dark:group-hover:text-white-dark'}`}>{t('admin')}</span>
                   </div>
                 </NavLink>
@@ -289,7 +297,7 @@ const Sidebar = () => {
               <li className='menu nav-item'>
                 <NavLink to='/chat' className='group'>
                   <div className='flex items-center'>
-                    <IconMenuDragAndDrop className='group-hover:!text-primary shrink-0' />
+                    <IconMenuChat className='group-hover:!text-primary shrink-0' />
                     <span className='ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark'>{t('chat')}</span>
                   </div>
                 </NavLink>

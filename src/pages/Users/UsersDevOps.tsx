@@ -48,7 +48,7 @@ const UsersDevOps = () => {
   ];
   const tableOption = {};
 
-  const sortByDescendingOrder = (categories, data) => {
+  const sortByDescendingOrder = (categories: any, data: any) => {
     return [...categories].sort((a, b) => {
       const valueA = data[categories.indexOf(a)];
       const valueB = data[categories.indexOf(b)];
@@ -79,7 +79,7 @@ const UsersDevOps = () => {
         <div className='grid lg:grid-cols-5 lg:grid-rows-3 gap-6'>
           <div className='panel lg:col-span-1 lg:row-span-2'>
             {/* TODO: label 추가 */}
-            <p>Last Week</p>
+            <p className='text-sm font-semibold mb-4'>Last Week</p>
             <div className='overflow-x-auto'>
               <table className='table'>
                 <thead>
@@ -105,7 +105,7 @@ const UsersDevOps = () => {
           </div>
           <div className='panel lg:col-span-1 lg:row-span-2'>
             {/* TODO: label 추가 */}
-            <p>This Week</p>
+            <p className='text-sm font-semibold mb-4'>This Week</p>
             <div className='overflow-x-auto'>
               <table className='table'>
                 <thead>

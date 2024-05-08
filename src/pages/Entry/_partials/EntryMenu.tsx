@@ -1,19 +1,26 @@
 import IconLogout from '@/components/Icon/IconLogout';
 import { useNavigate } from 'react-router-dom';
-import IconUsers from '@/assets/icons/group.png';
+import IconUsers from '@/assets/icons/IconUsers.svg';
 import IconAssets from '@/assets/icons/IconAssets.svg';
 import IconIAMPolicy from '@/assets/icons/IconIAMPolicy.svg';
 import IconIAMMonitor from '@/assets/icons/IconIAMMonitor.svg';
 import IconIAMAudit from '@/assets/icons/IconIAMAudit.svg';
 import IconCompliance from '@/assets/icons/IconCompliance.svg';
-import IconAdmin from '@/assets/icons/user.png';
+import IconAdmin from '@/assets/icons/IconAdmin.svg';
 import IconMenuDashboard from '@/components/Icon/Menu/IconMenuDashboard';
 import LogoZeroTrust from '@/assets/icons/LogoZeroTrust.svg';
 import { login } from '@/store/auth';
 import { useDispatch } from 'react-redux';
+import IconChatbot from '@/assets/icons/IconChatbot.png';
+
+interface Menu {
+  logo: any;
+  menu: string;
+  path: string;
+}
 
 const EntryMenu = () => {
-  const menuList = [
+  const menuList: Menu[] = [
     {
       logo: IconUsers,
       menu: 'IAM Users',
@@ -49,6 +56,11 @@ const EntryMenu = () => {
       menu: 'Admin',
       path: '/admin',
     },
+    {
+      logo: IconChatbot,
+      menu: 'ChatBot',
+      path: '/chat',
+    },
   ];
 
   const dispatch = useDispatch();
@@ -64,10 +76,10 @@ const EntryMenu = () => {
         <p className='text-6xl font-semibold tracking-tighter'>ZeroTrust Portal</p>
       </div>
 
-      <div className='flex gap-16 p-8 items-center justify-center'>
+      <div className='grid gap-8 p-8 lg:grid-cols-8 items-center'>
         {menuList.map((menu, idx) => (
-          <button className='lg:col-span-1 flex flex-col items-center rounded hover:text-[#FEFAF6] hover:cursor-pointer p-8' onClick={() => navigateMenu(menu['path'])}>
-            <img className='w-12' src={menu['logo']} alt={menu['menu']} />
+          <button className='lg:col-span-1 flex flex-col items-center rounded hover:text-[#6667AB] hover:cursor-pointer p-8' onClick={() => navigateMenu(menu['path'])}>
+            <img className=' w-[52px]' src={menu['logo']} alt={menu['menu']} />
             <p className='font-bold text-xl tracking-tighter mt-8'>{menu['menu']}</p>
           </button>
         ))}
