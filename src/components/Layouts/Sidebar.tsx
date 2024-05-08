@@ -210,42 +210,6 @@ const Sidebar = () => {
               </li>
 
               <li className='menu nav-item'>
-                <button type='button' className={`${currentMenu === 'topology' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('topology')}>
-                  <div className='flex items-center'>
-                    <IconMenuDashboard className='group-hover:!text-primary shrink-0' />
-                    <span className='ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark'>{t('topology')}</span>
-                  </div>
-
-                  <div className={currentMenu !== 'topology' ? 'rtl:rotate-90 -rotate-90' : ''}>
-                    <IconCaretDown />
-                  </div>
-                </button>
-
-                <AnimateHeight duration={300} height={currentMenu === 'topology' ? 'auto' : 0}>
-                  <ul className='sub-menu text-gray-500'>
-                    <li>
-                      <NavLink to='/regional-resources'>{t('regionalResources')}</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to='/subnets'>{t('subnets')}</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to='/vpc-gateways'>{t('vpcGateways')}</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to='/subnet-routes'>{t('subnetRoutes')}</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to='/load-balancers'>{t('loadBalancers')}</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to='/vpc-peering'>{t('vpcPeering')}</NavLink>
-                    </li>
-                  </ul>
-                </AnimateHeight>
-              </li>
-
-              <li className='menu nav-item'>
                 <button type='button' className={`${currentMenu === 'iamWorkflow' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('iamWorkflow')}>
                   <div className='flex items-center'>
                     {/* <IconMenuDashboard className='group-hover:!text-primary shrink-0' /> */}
