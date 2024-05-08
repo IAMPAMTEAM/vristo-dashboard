@@ -3,6 +3,7 @@ import { AgGridReact } from 'ag-grid-react';
 import { GridApi, SizeColumnsToContentStrategy, SizeColumnsToFitGridStrategy, SizeColumnsToFitProvidedWidthStrategy } from 'ag-grid-community';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
+import '@/assets/css/dataTalbeStyle.css';
 
 export default function DefaultDataTable({ tableData, tableOption }) {
     const defaultTableConfig = {
@@ -21,7 +22,28 @@ export default function DefaultDataTable({ tableData, tableOption }) {
     useEffect(() => {
         if (Array.isArray(tableData) && tableData.length > 0 && typeof tableData[0] === 'object' && tableData[0] !== null) {
             const keys = Object.keys(tableData[0]);
-            const columns = keys.map((key) => ({ field: key }));
+            const columns = keys
+                .map((key) => {
+                    if (key === 'CheckDate' || key === 'lastUpdated' || key === 'Manager') {
+                        return {
+                            field: key,
+                            headerClass: 'editable-header',
+                            cellEditor: 'agTextCellEditor',
+                            editable: true,
+                        };
+                    } else if (key === 'Comment' || key === 'comment') {
+                        return {
+                            field: key,
+                            headerClass: 'editable-header',
+                            cellEditor: 'agLargeTextCellEditor',
+                            cellEditorPopup: true,
+                            editable: true,
+                        };
+                    } else {
+                        return { field: key };
+                    }
+                })
+                .filter(Boolean);
 
             setColumnDefs(columns);
             setRowData(tableData);
