@@ -23,7 +23,7 @@ function UserTest() {
     }
 
     useEffect(() => {
-        fetch('https://lhh-iampam-demodata.s3.ap-northeast-2.amazonaws.com/iampam-zerotrust-v0.3_users-saas.json')
+        fetch('https://sy-workflow-demodata.s3.us-west-2.amazonaws.com/workflow-origin.json')
             .then((result) => result.json())
             .then((data) => {
                 settableData(data);
@@ -38,7 +38,7 @@ function UserTest() {
                 <div className="grid lg:grid-cols-1 gap-6">
                     <div className="panel">
                         {/* <DefaultDataTableFitWidth tableData={tableData} tableOption={tableOption} /> */}
-                        {/* <OnclickGetRowDataTable getOnclickRowData={getOnclickRowData} tableData={tableData} tableOption={tableOption} /> */}
+                        <OnclickGetRowDataTable getOnclickRowData={getOnclickRowData} tableData={tableData} tableOption={tableOption} />
                         {/* <AccordionTabletest tableData={tableData} detailTableCol="Direction" tableOption={tableOption} /> */}
                         {/* <AccordionTable /> */}
                         <AccessPolicyDevopsTable />

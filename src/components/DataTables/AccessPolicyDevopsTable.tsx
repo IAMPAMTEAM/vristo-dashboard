@@ -41,7 +41,11 @@ export default function AccessPolicyDevopsTable() {
         {
             headerName: 'Portal Policy',
             children: [
-                { headerName: 'Mgmt', field: 'Management', maxWidth: 80 },
+                {
+                    headerName: 'Mgmt',
+                    field: 'Management',
+                    maxWidth: 80,
+                },
                 { field: 'Diag', maxWidth: 70 },
                 { headerName: 'Monitor', field: 'Monitoring', maxWidth: 90 },
                 { field: 'Audit', maxWidth: 70 },
