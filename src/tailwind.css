@@ -41,7 +41,7 @@
 
   .sidebar .nav-item > button,
   .sidebar .nav-item > a {
-    @apply mb-1 flex items-center justify-between overflow-hidden whitespace-nowrap rounded-md p-2.5 text-[#506690] hover:bg-[#000]/[0.08] hover:text-black dark:hover:bg-[#181f32] dark:hover:text-white-dark w-full;
+    @apply mb-1 flex items-center justify-between overflow-hidden whitespace-nowrap rounded-md p-2.5 text-[#506690] hover:bg-[#000]/[0.08] hover:text-black dark:hover:bg-[#181f32] dark:hover:text-white-dark;
   }
   .sidebar .nav-item > button.active,
   .sidebar .nav-item > a.active {
@@ -57,12 +57,16 @@
     @apply w-full;
   }
 
+  .sidebar .nav-item div div {
+    @apply min-w-[135%] max-w-min !important;
+  }
+
   .sidebar ul {
-    @apply w-full;
+    @apply min-w-full;
   }
   .sidebar ul.sub-menu li button,
   .sidebar ul.sub-menu li a {
-    @apply flex items-center px-4 py-4.5 hover:bg-gray-100 
+    @apply flex items-center px-4 py-4.5 hover:bg-gray-100 w-full
       hover:text-primary hover:before:!bg-primary dark:before:bg-gray-500 dark:hover:bg-gray-900 dark:hover:text-primary;
   }
   .sidebar ul.sub-menu li button.active,
