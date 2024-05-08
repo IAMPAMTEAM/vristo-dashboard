@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
-import IconCircleCheck from '../Icon/IconCircleCheck';
+import IconCircleCheck from '../../Icon/IconCircleCheck';
 
 interface Props {
     series: number[];

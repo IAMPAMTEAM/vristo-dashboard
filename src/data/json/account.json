@@ -1,0 +1,9 @@
+[
+  {
+    "accoutUsername": "demo",
+    "accountRequestWho": "데모(demo)",
+    "accountRenewalDate": 365,
+    "accountRenewalDue": "23/1/2025",
+    "accountCredentialsUri": "https://iampam.io/account/credentials/demo.json"
+  }
+]
