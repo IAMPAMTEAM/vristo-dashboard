@@ -1,4 +1,4 @@
-import DefaultDataTable from '@/components/DataTables/DefaultDataTableFitWidth';
+import DefaultDataTable from '@/components/DataTables/DefaultDataTable';
 import { useEffect, useState } from 'react';
 
 const DBAWSRDS = () => {

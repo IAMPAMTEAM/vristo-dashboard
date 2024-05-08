@@ -1,4 +1,4 @@
-import DefaultDataTable from '@/components/DataTables/DefaultDataTableFitWidth';
+import DefaultDataTable from '@/components/DataTables/DefaultDataTable';
 import { StackedVerticalBarChart } from '@/components/Charts/_partials/StackedVerticalBarChart';
 import { UpdatingPieChart } from '@/components/Charts/_partials/UpdatingPieChart';
 import { useEffect, useState } from 'react';

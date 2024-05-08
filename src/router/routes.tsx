@@ -1,7 +1,6 @@
 import { lazy } from 'react';
 const DashboardOverview = lazy(() => import('@/pages/Dashboard/DashboardOverview'));
 const Chart = lazy(() => import('@/pages/Chart'));
-const Test = lazy(() => import('@/pages/Test'));
 const RegionalResources = lazy(() => import('@/pages/Topology/RegionalResources'));
 const Subnets = lazy(() => import('@/pages/Topology/Subnets'));
 const SubnetRoutes = lazy(() => import('@/pages/Topology/SubnetRoutes'));
@@ -50,11 +49,6 @@ const routes = [
   {
     path: '/chart',
     element: <Chart />,
-    layout: 'default',
-  },
-  {
-    path: '/test',
-    element: <Test />,
     layout: 'default',
   },
   {
