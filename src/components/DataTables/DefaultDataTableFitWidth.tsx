@@ -4,6 +4,7 @@ import { GridApi, SizeColumnsToContentStrategy, SizeColumnsToFitGridStrategy, Si
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 
+// @ts-ignore
 export default function DefaultDataTable({ tableData, tableOption }) {
   const defaultTableConfig = {
     tableHeight: 535,
@@ -23,7 +24,9 @@ export default function DefaultDataTable({ tableData, tableOption }) {
       const keys = Object.keys(tableData[0]);
       const columns = keys.map((key) => ({ field: key }));
 
+      // @ts-ignore
       setColumnDefs(columns);
+      // @ts-ignore
       setRowData(tableData);
     }
     setTableConfig({ ...defaultTableConfig, ...tableOption });

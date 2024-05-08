@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 
 const Compliance = () => {
   const [reportHTML, setReportHTML] = useState('');
@@ -9,7 +8,6 @@ const Compliance = () => {
       .then((data) => setReportHTML(data));
   });
 
-  axios.defaults.withCredentials = true;
   useEffect(() => {
     const tabs = document.querySelectorAll('.tab');
     const reports = document.querySelectorAll('.h-report');

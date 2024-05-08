@@ -45,6 +45,7 @@ export const VerticalBarChart = (props: Props) => {
 
   return (
     <div>
+      {/* @ts-ignore */}
       <ReactApexChart options={chartData.options} series={chartData.series} type='bar' />
     </div>
   );

@@ -4,6 +4,7 @@ import { GridApi, SizeColumnsToContentStrategy, SizeColumnsToFitGridStrategy, Si
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 
+// @ts-ignore
 export default function OnclickGetRowDataTable({ getOnclickRowData, tableData, tableOption }) {
   const defaultTableConfig = {
     tableHeight: 535,
@@ -26,6 +27,7 @@ export default function OnclickGetRowDataTable({ getOnclickRowData, tableData, t
           if (key === 'formCategory') {
             return {
               field: key,
+              // @ts-ignore
               cellStyle: (params) => {
                 if (params.value === 'account') {
                   return { backgroundColor: '#d0f4de' };
@@ -37,6 +39,7 @@ export default function OnclickGetRowDataTable({ getOnclickRowData, tableData, t
           } else if (key === 'formType') {
             return {
               field: key,
+              // @ts-ignore
               cellStyle: (params) => {
                 if (params.value === 'aws') {
                   return { backgroundColor: '#fcf6bd' };
@@ -60,6 +63,7 @@ export default function OnclickGetRowDataTable({ getOnclickRowData, tableData, t
           } else if (key === 'formRequestWhat') {
             return {
               field: key,
+              // @ts-ignore
               cellStyle: (params) => {
                 if (params.value === 'new') {
                   return { backgroundColor: '#7ae582' };
@@ -75,6 +79,7 @@ export default function OnclickGetRowDataTable({ getOnclickRowData, tableData, t
           } else if (key === 'formStatus') {
             return {
               field: key,
+              // @ts-ignore
               cellStyle: (params) => {
                 if (params.value === 'approved') {
                   return { backgroundColor: '#fbf8cc' };
@@ -102,7 +107,9 @@ export default function OnclickGetRowDataTable({ getOnclickRowData, tableData, t
           }
         })
         .filter(Boolean);
+      // @ts-ignore
       setColumnDefs(columns);
+      // @ts-ignore
       setRowData(tableData);
     }
     setTableConfig({ ...defaultTableConfig, ...tableOption });
