@@ -19,6 +19,7 @@ interface Row {
 
 const WorkflowMain = () => {
   const [tableData, setTableData] = useState([]);
+  const [seed, setSeed] = useState(Date.now());
   const [rowData, setRowData] = useState<Row>({
     formCategory: null,
     formType: '',
@@ -65,13 +66,14 @@ const WorkflowMain = () => {
             getOnclickRowData={(d: any) => {
               setFormType(d['formType']);
               setRowData(d);
+              setSeed(Date.now());
             }}
           />
         </div>
       </div>
       <div className='pt-6'>
         {/* <p>{rowData['formType']}</p> */}
-        {rowData['formCategory'] === null ? <div></div> : rowData['formCategory'] === 'account' ? <Account /> : rowData['formCategory'] === 'access' ? <Policy formType={formType} /> : ''}
+        {rowData['formCategory'] === null ? <div></div> : rowData['formCategory'] === 'account' ? <Account /> : rowData['formCategory'] === 'access' ? <Policy seed={seed} formType={formType} /> : ''}
       </div>
     </div>
   );

@@ -31,6 +31,14 @@ export default function DefaultDataTable({ tableData, tableOption }) {
               headerClass: 'editable-header',
               cellEditor: 'agTextCellEditor',
               editable: true,
+              headerComponentParams: {
+                template: `
+                                   <div>
+                                       <span class='text-[20px]' >
+                                       ✎ 
+                                        </span> ${key} 
+                                   </div>`,
+              },
             };
           } else if (key === 'Comment' || key === 'comment') {
             return {
@@ -39,6 +47,14 @@ export default function DefaultDataTable({ tableData, tableOption }) {
               cellEditor: 'agLargeTextCellEditor',
               cellEditorPopup: true,
               editable: true,
+              headerComponentParams: {
+                template: `
+                                   <div>
+                                       <span class='text-[20px]' >
+                                       ✎ 
+                                        </span> ${key} 
+                                   </div>`,
+              },
             };
           } else if (key === 'employeeState' || key === 'hrState') {
             return {
