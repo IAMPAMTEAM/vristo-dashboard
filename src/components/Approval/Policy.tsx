@@ -4,8 +4,7 @@ import IconTrash from '../Icon/IconTrash';
 import IconPlus from '../Icon/IconPlus';
 import IconRefresh from '../Icon/IconRefresh';
 
-const Policy = ({ formType }: any) => {
-  console.log(formType);
+const Policy = ({ seed, formType }: any) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [processData, setProcessData] = useState([]);
   const [accountData, setAccountData] = useState([]);
@@ -26,7 +25,6 @@ const Policy = ({ formType }: any) => {
       .then((result) => result.json())
       .then((data) => setNotesData(data));
 
-    console.log(formType);
     // setResource(formType);
     // console.log(resource, 'dfasfadsfds');
     if (formType) {
@@ -69,7 +67,7 @@ const Policy = ({ formType }: any) => {
         default:
       }
     }
-  }, []);
+  }, [seed]);
 
   return (
     <div className='grid lg:grid-cols-7 lg:grid-row-10 gap-6'>
