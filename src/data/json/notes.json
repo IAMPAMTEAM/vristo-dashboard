@@ -1,0 +1,17 @@
+[
+  {
+    "processType": "agree",
+    "note": "사전 협의됨",
+    "processUsername": "배형준(dfquarhj)"
+  },
+  {
+    "processType": "review",
+    "note": "검토 완료",
+    "processUsername": "장진규(jkjang09)"
+  },
+  {
+    "processType": "approve",
+    "note": "승인 완료",
+    "processUsername": "김민규(sumshing)"
+  }
+]

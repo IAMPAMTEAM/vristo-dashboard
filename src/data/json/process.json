@@ -1,0 +1,22 @@
+[
+  {
+    "processType": "agree",
+    "processUsername": "배형준(dfquarhj)",
+    "processUsernameTeam": "개발팀"
+  },
+  {
+    "processType": "agree",
+    "processUsername": "윤민호(ymh0628)",
+    "processUsernameTeam": "솔루션유지보수"
+  },
+  {
+    "processType": "review",
+    "processUsername": "장진규(jkjang09)",
+    "processUsernameTeam": "운영팀"
+  },
+  {
+    "processType": "approve",
+    "processUsername": "김민규(sumshing)",
+    "processUsernameTeam": "정보보호"
+  }
+]

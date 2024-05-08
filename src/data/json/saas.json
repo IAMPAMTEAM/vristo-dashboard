@@ -1,0 +1,52 @@
+[
+  {
+    "infraType": "hybrid",
+    "saasName": "slack,notion,office365",
+    "saasRequestWhat": "new",
+    "saasUsername": "hsn9098",
+    "saasOtp": "Required",
+    "saasPolicyName": "policy-iampam-devops",
+    "saasRenewalDate": 365,
+    "saasRenewalDue": "23/1/2025"
+  },
+  {
+    "infraType": "hybrid",
+    "saasName": "slack,notion,office365",
+    "saasRequestWhat": "new",
+    "saasUsername": "artincorea",
+    "saasOtp": "Required",
+    "saasPolicyName": "policy-iampam-devops",
+    "saasRenewalDate": 365,
+    "saasRenewalDue": "23/1/2025"
+  },
+  {
+    "infraType": "hybrid",
+    "saasName": "bitbucket",
+    "saasRequestWhat": "delete",
+    "saasUsername": "taeyoung1",
+    "saasOtp": "Required",
+    "saasPolicyName": "policy-iampam-outsourcing",
+    "saasRenewalDate": 365,
+    "saasRenewalDue": "23/1/2025"
+  },
+  {
+    "infraType": "hybrid",
+    "saasName": "office365",
+    "saasRequestWhat": "renewal",
+    "saasUsername": "pdhldf",
+    "saasOtp": "No",
+    "saasPolicyName": "policy-iampam-operation",
+    "saasRenewalDate": 365,
+    "saasRenewalDue": "23/1/2025"
+  },
+  {
+    "infraType": "hybrid",
+    "saasName": "office365,bitbucket",
+    "saasRequestWhat": "new",
+    "saasUsername": "ksoonbo",
+    "saasOtp": "No",
+    "saasPolicyName": "policy-iampam-operation",
+    "saasRenewalDate": 365,
+    "saasRenewalDue": "23/1/2025"
+  }
+]

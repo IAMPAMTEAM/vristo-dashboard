@@ -1,0 +1,44 @@
+[
+  {
+    "vpnProfile": "vpn-devteam-aws",
+    "infraType": "aws",
+    "otpVpn": "Required",
+    "radiusServer": "AWS-RadiusServer",
+    "accessTime": "anytime"
+  },
+  {
+    "vpnProfile": "vpn-admin-aws",
+    "infraType": "aws",
+    "otpVpn": "Required",
+    "radiusServer": "AWS-RadiusServer",
+    "accessTime": "anytime"
+  },
+  {
+    "vpnProfile": "vpn-securityteam-aws",
+    "infraType": "aws",
+    "otpVpn": "Required",
+    "radiusServer": "AWS-RadiusServer",
+    "accessTime": "anytime"
+  },
+  {
+    "vpnProfile": "vpn-admin-aws",
+    "infraType": "aws",
+    "otpVpn": "Required",
+    "radiusServer": "IDC-RadiusServer",
+    "accessTime": "anytime"
+  },
+  {
+    "vpnProfile": "vpn-outsourcing-onpremise",
+    "infraType": "onpremise",
+    "otpVpn": "Required",
+    "radiusServer": "IDC-RadiusServer",
+    "accessTime": "anytime"
+  },
+  {
+    "vpnProfile": "vpn-admin-onpremise",
+    "infraType": "onpremise",
+    "otpVpn": "Required",
+    "radiusServer": "IDC-RadiusServer",
+    "accessTime": "anytime"
+  }
+]

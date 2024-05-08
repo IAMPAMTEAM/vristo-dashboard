@@ -1,0 +1,62 @@
+[
+  {
+    "infraType": "hybrid",
+    "portalRequestWhat": "new",
+    "portalName": "zerotrust",
+    "portalUsername": "hsn9098",
+    "portalOtp": "Required",
+    "portalPolicyName": "policy-iampam-devops",
+    "portalAcccess": ["Management", "Monitoring"],
+    "portalRenewalDate": 365,
+    "portalRenewalDue": "23/1/2025",
+    "portalCredentialsUri": "https://iampam.io/portal/credentials/hsn9098-7asd313"
+  },
+  {
+    "infraType": "hybrid",
+    "portalRequestWhat": "new",
+    "portalName": "zerotrust",
+    "portalUsername": "artincorea",
+    "portalOtp": "Required",
+    "portalPolicyName": "policy-iampam-devops",
+    "portalAcccess": ["Management", "Monitoring"],
+    "portalRenewalDate": 365,
+    "portalRenewalDue": "23/1/2025",
+    "portalCredentialsUri": "https://iampam.io/portal/credentials/artincorea-82xd121"
+  },
+  {
+    "infraType": "hybrid",
+    "portalRequestWhat": "delete",
+    "portalName": "zerotrust",
+    "portalUsername": "taeyoung1",
+    "portalOtp": "Required",
+    "portalPolicyName": "policy-iampam-outsourcing",
+    "portalAcccess": ["Monitoring"],
+    "portalRenewalDate": 365,
+    "portalRenewalDue": "23/1/2025",
+    "portalCredentialsUri": "https://iampam.io/portal/credentials/taeyoung1-213d125"
+  },
+  {
+    "infraType": "hybrid",
+    "portalRequestWhat": "renewal",
+    "portalName": "cloudops",
+    "portalUsername": "pdhldf",
+    "portalOtp": "No",
+    "portalPolicyName": "policy-iampam-operation",
+    "portalAcccess": ["Resources", "Cost"],
+    "portalRenewalDate": 365,
+    "portalRenewalDue": "23/1/2025",
+    "portalCredentialsUri": "https://iampam.io/portal/credentials/pdhldf-15x5233"
+  },
+  {
+    "infraType": "hybrid",
+    "portalRequestWhat": "new",
+    "portalName": "cloudops",
+    "portalUsername": "ksoonbo",
+    "portalOtp": "No",
+    "portalPolicyName": "policy-iampam-operation",
+    "portalAcccess": ["Resources", "Cost"],
+    "portalRenewalDate": 365,
+    "portalRenewalDue": "23/1/2025",
+    "portalCredentialsUri": "https://iampam.io/portal/credentials/ksoonbo-4523423"
+  }
+]

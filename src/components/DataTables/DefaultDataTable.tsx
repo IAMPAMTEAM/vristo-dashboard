@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AgGridReact } from 'ag-grid-react';
-import { SizeColumnsToContentStrategy, SizeColumnsToFitGridStrategy, SizeColumnsToFitProvidedWidthStrategy } from 'ag-grid-community';
+import { GridApi, SizeColumnsToContentStrategy, SizeColumnsToFitGridStrategy, SizeColumnsToFitProvidedWidthStrategy } from 'ag-grid-community';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 
@@ -12,6 +12,8 @@ export default function DefaultDataTable({ tableData, tableOption }) {
         paginationPageSizeSelector: [10, 20, 50, 100],
     };
 
+    const gridRef = useRef<AgGridReact>(null);
+    const gridApi = useRef<GridApi>();
     const [rowData, setRowData] = useState([]);
     const [columnDefs, setColumnDefs] = useState([]);
     const [tableConfig, setTableConfig] = useState(defaultTableConfig);
@@ -42,6 +44,7 @@ export default function DefaultDataTable({ tableData, tableOption }) {
     return (
         <div className="ag-theme-alpine" style={{ height: tableConfig.tableHeight }}>
             <AgGridReact
+                ref={gridRef}
                 rowData={rowData}
                 columnDefs={columnDefs}
                 defaultColDef={defaultColDef}
