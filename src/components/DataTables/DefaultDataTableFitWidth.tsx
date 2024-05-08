@@ -31,6 +31,14 @@ export default function DefaultDataTable({ tableData, tableOption }) {
               headerClass: 'editable-header',
               cellEditor: 'agTextCellEditor',
               editable: true,
+              headerComponentParams: {
+                template: `
+                                   <div>
+                                       <span class='text-[20px]' >
+                                       ✎ 
+                                        </span> ${key} 
+                                   </div>`,
+              },
             };
           } else if (key === 'Comment' || key === 'comment') {
             return {
@@ -39,6 +47,52 @@ export default function DefaultDataTable({ tableData, tableOption }) {
               cellEditor: 'agLargeTextCellEditor',
               cellEditorPopup: true,
               editable: true,
+              headerComponentParams: {
+                template: `
+                                   <div>
+                                       <span class='text-[20px]' >
+                                       ✎ 
+                                        </span> ${key} 
+                                   </div>`,
+              },
+            };
+          } else if (key === 'employeeState' || key === 'hrState') {
+            return {
+              field: key,
+              cellStyle: (params) => {
+                if (params.value === 'Retired' || params.value === 'Resigned' || params.value === 'Expired' || params.value === 'Inactive') {
+                  return { color: '#C22626' };
+                } else {
+                  return;
+                }
+              },
+            };
+          } else if (
+            key === 'onpremise' ||
+            key === 'aws' ||
+            key === 'azure' ||
+            key === 'server' ||
+            key === 'db' ||
+            key === 'network' ||
+            key === 'Jira' ||
+            key === 'Jenkins' ||
+            key === 'Git' ||
+            key === 'ERP' ||
+            key === 'notion' ||
+            key === 'office365' ||
+            key === 'bitbucket' ||
+            key === 'slack'
+          ) {
+            return {
+              field: key,
+              headerClass: 'grouping-header',
+              cellStyle: (params) => {
+                if (params.value === 'Allowed') {
+                  return { color: '#47996B' };
+                } else {
+                  return;
+                }
+              },
             };
           } else {
             return { field: key };
