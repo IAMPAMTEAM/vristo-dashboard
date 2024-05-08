@@ -11,11 +11,6 @@ import IconLogin from '../../components/Icon/IconLogin';
 import IconSearch from '../../components/Icon/IconSearch';
 import IconMenu from '../../components/Icon/IconMenu';
 import IconMessage from '../../components/Icon/IconMessage';
-import IconPhoneCall from '../../components/Icon/IconPhoneCall';
-import IconVideo from '../../components/Icon/IconVideo';
-import IconCopy from '../../components/Icon/IconCopy';
-import IconTrashLines from '../../components/Icon/IconTrashLines';
-import IconShare from '../../components/Icon/IconShare';
 import IconMoodSmile from '../../components/Icon/IconMoodSmile';
 import IconSend from '../../components/Icon/IconSend';
 import IconMicrophoneOff from '../../components/Icon/IconMicrophoneOff';
@@ -31,26 +26,50 @@ const Chat = () => {
     dispatch(setPageTitle('Chat'));
   });
   const isRtl = useSelector((state: IRootState) => state.themeConfig.rtlClass) === 'rtl' ? true : false;
-  const isDark = useSelector((state: IRootState) => state.themeConfig.theme === 'dark' || state.themeConfig.isDarkMode);
-
+  let isFlag = false;
   const [isShowChatMenu, setIsShowChatMenu] = useState(false);
   const [searchUser, setSearchUser] = useState('');
   const [isShowUserChat, setIsShowUserChat] = useState(false);
   const [selectedUser, setSelectedUser] = useState<any>(null);
   const [textMessage, setTextMessage] = useState('');
-  const [filteredItems, setFilteredItems] = useState<any>(contactList);
+  const [filteredItems, setFilteredItems] = useState<any[]>(contactList);
+  const [message1, setMessage1] = useState([
+    // {
+    //   fromUserId: 0,
+    //   toUserId: 1,
+    //   text: 'ChatBot1',
+    // },
+  ]);
+  // const [list, setList] = useState<any[]>(contactList)
+  const [answer, setAnswer] = useState<any>('');
+  const [result, setResult] = useState<any>();
 
   useEffect(() => {
-    setFilteredItems(() => {
-      return contactList.filter((d) => {
-        return d.name.toLowerCase().includes(searchUser.toLowerCase());
-      });
-    });
+    if (!result) {
+      return;
+    }
+
+    setMessage1((prev) => [
+      ...prev,
+      {
+        fromUserId: 0,
+        toUserId: 1,
+        text: result.data.answer,
+      },
+    ]);
+  }, [result]);
+
+  useEffect(() => {
+    // setFilteredItems(() => {
+    //   return contactList.filter((d) => {
+    //     return d.name.toLowerCase().includes(searchUser.toLowerCase());
+    //   });
+    // });
   }, [searchUser]);
 
-  useEffect(() => {
-    initialSendApi('삼성생명의 companyRegisterNumber는?');
-  });
+  // useEffect(() => {
+  //   initialSendApi('삼성생명의 companyRegisterNumber는?');
+  // });
 
   const scrollToBottom = () => {
     if (isShowUserChat) {
@@ -68,19 +87,30 @@ const Chat = () => {
     scrollToBottom();
     setIsShowChatMenu(false);
   };
-  const sendMessage = () => {
+  const sendMessage = async () => {
     if (textMessage.trim()) {
-      let list = contactList;
-      let user: any = list.find((d) => d.userId === selectedUser.userId);
-      user.messages.push({
-        fromUserId: selectedUser.userId,
-        toUserId: 0,
-        text: textMessage,
-        time: 'Just now',
+      setMessage1((prev) => {
+        return [
+          ...prev,
+          {
+            fromUserId: 1,
+            toUserId: 0,
+            text: textMessage,
+          },
+        ];
       });
-      // TODO: Send API
-      setFilteredItems(list);
       setTextMessage('');
+
+      const data = await initialSendApi(textMessage);
+
+      if (data) {
+        isFlag = false;
+      }
+
+      setResult(data);
+
+      // setFilteredItems(list);
+
       scrollToBottom();
     }
   };
@@ -221,48 +251,25 @@ const Chat = () => {
               <div className='h-px w-full border-b border-white-light dark:border-[#1b2e4b]'></div>
 
               <PerfectScrollbar className='relative h-full sm:h-[calc(100vh_-_300px)] chat-conversation-box'>
-                <div className='space-y-5 p-4 sm:pb-0 pb-[68px] sm:min-h-[300px] min-h-[400px]'>
-                  <div className='block m-6 mt-0'>
-                    <h4 className='text-xs text-center border-b border-[#f4f4f4] dark:border-gray-800 relative'>
-                      <span className='relative top-2 px-3 bg-white dark:bg-black'>{'Today, ' + selectedUser.time}</span>
-                    </h4>
-                  </div>
-                  {selectedUser.messages && selectedUser.messages.length ? (
-                    <>
-                      {selectedUser.messages.map((message: any, index: any) => {
-                        return (
-                          <div key={index}>
-                            <div className={`flex items-start gap-3 ${selectedUser.userId === message.fromUserId ? 'justify-end' : ''}`}>
-                              <div className={`flex-none ${selectedUser.userId === message.fromUserId ? 'order-2' : ''}`}>
-                                {selectedUser.userId === message.fromUserId ? <img src={selectedUser.path} className='rounded-full h-10 w-10 object-cover' alt='' /> : ''}
-                                {selectedUser.userId !== message.fromUserId ? <img src={selectedUser.path} className='rounded-full h-10 w-10 object-cover' alt='' /> : ''}
-                              </div>
-                              <div className='space-y-2'>
-                                <div className='flex items-center gap-3'>
-                                  <div
-                                    className={`dark:bg-gray-800 p-4 py-2 rounded-md bg-black/10 ${
-                                      message.fromUserId === selectedUser.userId ? 'ltr:rounded-br-none rtl:rounded-bl-none !bg-primary text-white' : 'ltr:rounded-bl-none rtl:rounded-br-none'
-                                    }`}
-                                  >
-                                    {message.text}
-                                  </div>
-                                  <div className={`${selectedUser.userId === message.fromUserId ? 'hidden' : ''}`}>
-                                    <IconMoodSmile className='hover:text-primary' />
-                                  </div>
-                                </div>
-                                <div className={`text-xs text-white-dark ${selectedUser.userId === message.fromUserId ? 'ltr:text-right rtl:text-left' : ''}`}>
-                                  {message.time ? message.time : '5h ago'}
-                                </div>
-                              </div>
-                            </div>
+                {message1.map((message, idx) => {
+                  if (selectedUser.name === 'ChatBot1') {
+                    return (
+                      <div className='m-4' key={idx}>
+                        {message['fromUserId'] === 0 ? (
+                          <div className='chat chat-start'>
+                            <div className='chat-bubble chat-bubble-success'>{message['text']}</div>
                           </div>
-                        );
-                      })}
-                    </>
-                  ) : (
-                    ''
-                  )}
-                </div>
+                        ) : (
+                          <div className='chat chat-end'>
+                            <div className='chat-bubble chat-bubble-info'>{message['text']}</div>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  } else {
+                    return;
+                  }
+                })}
               </PerfectScrollbar>
               <div className='p-4 absolute bottom-0 left-0 w-full'>
                 <div className='sm:flex w-full space-x-3 rtl:space-x-reverse items-center'>
@@ -272,7 +279,11 @@ const Chat = () => {
                       placeholder='Type a message'
                       value={textMessage}
                       onChange={(e: any) => setTextMessage(e.target.value)}
-                      onKeyUp={sendMessageHandle}
+                      onKeyUp={(event) => {
+                        if (event.key === 'Enter' && event.nativeEvent.isComposing === false) {
+                          sendMessageHandle(event);
+                        }
+                      }}
                     />
                     <button type='button' className='absolute ltr:left-4 rtl:right-4 top-1/2 -translate-y-1/2 hover:text-primary'>
                       <IconMoodSmile />

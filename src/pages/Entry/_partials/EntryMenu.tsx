@@ -11,7 +11,7 @@ import IconMenuDashboard from '@/components/Icon/Menu/IconMenuDashboard';
 import LogoZeroTrust from '@/assets/icons/LogoZeroTrust.svg';
 import { login } from '@/store/auth';
 import { useDispatch } from 'react-redux';
-import IconChatbot from '@/assets/icons/IconChatbot.png';
+import IconChatbot from '@/assets/icons/IconChatbot.svg';
 
 interface Menu {
   logo: any;
@@ -70,7 +70,7 @@ const EntryMenu = () => {
   const navigateMenu = (path: string) => navigate(path);
 
   return (
-    <div className='relative  panel flex flex-col gap-12 w-[1200px] bg-[#F6F5F2] rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100 p-14 border-none'>
+    <div className='relative panel flex flex-col gap-12 w-[1200px] bg-[#F6F5F2] rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100 p-14 border-none'>
       <div className='flex gap-8 justify-center items-center relative'>
         <img className='w-16 p-2 bg-[#6667AB] rounded-xl' src={LogoZeroTrust} alt='' />
         <p className='text-6xl font-semibold tracking-tighter'>ZeroTrust Portal</p>
